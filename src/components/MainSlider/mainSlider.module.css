@@ -23,6 +23,11 @@
             margin-top: 30px;
             display: flex;
             gap: 15px;
+            overflow-x: hidden;
+
+            .listitem{
+                width: 239px;
+            }
 
             .next{
                 cursor: pointer;
@@ -35,4 +40,8 @@
             }
         }
     }
+}
+
+.slideClass{
+    overflow-x: hidden;
 }

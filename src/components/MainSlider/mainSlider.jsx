@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Card } from "./Card/card";
-import { useState } from "react"
+import Whirligig from 'react-whirligig'
 import styles from "/src/components/MainSlider/mainSlider.module.css"
 import one from "/src/assets/1.png"
 import two from "/src/assets/2.png"
@@ -55,35 +55,36 @@ const info = {
 }
 
 export const MainSlider = () => {
-    const [current, setCurrent] = useState(0);
-
-    const nextSlide = () => {
-        setCurrent(current === info.data.length - 1 ? 0 : current + 4);
-      };
-
-      const prevSlide = () => {
-        setCurrent(current === 0 ? info.data.length - 1 : current - 4);
-      };
+    let whirligig
+    const next = () => whirligig.next()
+    const prev = () => whirligig.prev()
 
     return(
         <div className={styles.MainSlider}>
             <div className={styles.MainSlider__inner}>
                 <h1 className={styles.MainSlider__inner_h1}>ХИТЫ ПРОДАЖ </h1>
                 <div className={styles.MainSlider__cards}>
-                    <img src={backImg} alt="" className={styles.back} onClick={prevSlide}/>
-                    {info.data.map((img, index) => 
-                        (
-                            <Card 
-                                key={img.id} 
-                                price={img.price} 
-                                img={img.img} 
-                                title={img.title} 
-                                name={img.name} 
-                                id={img.id} 
-                            />
-                        ) 
-                    )}
-                    <img src={nextImg} alt="" className={styles.next} onClick={nextSlide}/>
+                    <img src={backImg} alt="" className={styles.back} onClick={prev}/>
+                    <Whirligig
+                        visibleSlides={4}
+                        gutter="1em"
+                        ref={(_whirligigInstance) => { whirligig = _whirligigInstance}}
+                        className={styles.MainSlider__cards}
+                    >
+                        {info.data.map((img) => 
+                            (
+                                <Card 
+                                    key={img.id} 
+                                    price={img.price} 
+                                    img={img.img} 
+                                    title={img.title} 
+                                    name={img.name} 
+                                    id={img.id} 
+                                />
+                            ) 
+                        )}
+                    </Whirligig>
+                    <img src={nextImg} alt="" className={styles.next} onClick={next}/>
                 </div>
             </div>
         </div>

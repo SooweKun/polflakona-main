@@ -2322,6 +2322,11 @@ react-is@^16.13.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-whirligig@^6.6.15:
+  version "6.6.15"
+  resolved "https://registry.yarnpkg.com/react-whirligig/-/react-whirligig-6.6.15.tgz#c3dfdb348b6609d5980b1ddb8bf884977443f7c4"
+  integrity sha512-XdpemECafwICwpQVl1pztr9yE/26C2RdXhuZHTlMCksCtisX68MYRvM0qA7MA1f86dKwRRvA6exML0U0fdxkfg==
+
 react@^18.2.0:
   version "18.3.1"
   resolved "https://registry.yarnpkg.com/react/-/react-18.3.1.tgz#49ab892009c53933625bd16b2533fc754cab2891"
