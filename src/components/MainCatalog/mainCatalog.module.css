@@ -1,0 +1,20 @@
+.MainCatalog{
+    display: flex;
+    flex-direction: column;
+    max-width: 924px;
+    margin: 0 auto;
+    margin-top: 60px;
+    align-items: center;
+
+    .MainCatalog__cards{
+        display: flex;
+        gap: 27px;
+        margin-top: 10px;
+    }
+
+    .MainCatalog__title{
+        font-size: 24px;
+        font-weight: 700;
+        color: #563782;
+    }
+}

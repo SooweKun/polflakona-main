@@ -1,0 +1,51 @@
+.Brends{
+    .Brends__inner {
+        max-width: 1056px;
+        margin: 0 auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    
+        .Brends__navig{
+            display: flex;
+            gap: 3px;
+            align-items: center;
+    
+            >a{
+                text-decoration: none;
+                color: #4A1A8C;
+                font-size: 12px;
+                font-weight: 400;
+            }
+    
+            >p{
+                font-size: 12px;
+                font-weight: 400px;
+                color: #4A1A8C;
+            }
+    
+            >p:nth-child(2){
+                color: #3A2557;
+                text-decoration: underline;
+                text-underline-offset: 4px;
+            }
+        }
+    
+        >h1{
+            margin-top: 50px;
+            color: #3A2557;
+            font-size: 32px;
+            font-weight: bold;
+        }
+    
+        .Brends__cards{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 61px;
+        }
+    }
+}

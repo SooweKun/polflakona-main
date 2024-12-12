@@ -1,0 +1,16 @@
+.Number{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .Number__p{
+        color: #593780;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}

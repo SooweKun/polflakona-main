@@ -1,0 +1,52 @@
+.MainCatalogCard{
+    width: 290px;
+    height: 394px;
+    border-radius: 20px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F8F8F8;
+    position: relative;
+
+    .MainCatalogCard__img{
+        width: 280px;
+        height: 291px;
+        border-radius: 18px;
+    }
+
+    .overlay {
+        position: absolute; 
+        top: 5px;
+        left: 5px;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(58, 37, 87, 0.8); 
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        opacity: 0; 
+        transition: opacity 0.3s ease;
+        width: 280px;
+        height: 291px;
+        border-radius: 18px;
+
+        &:hover{
+            opacity: 1; 
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    }
+
+    
+    .MainCatalogCard__title{
+        color: #563782;
+        font-size: 20px;
+        font-weight: 600px;
+        width: 233px;
+        height: 44px;
+        margin-top: 20px;
+    }
+}

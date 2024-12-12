@@ -1,0 +1,24 @@
+.Header{
+    max-width: 1056px;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    align-items: center;
+
+    .Header__logo{
+        color: #3A2557;
+        font-size: 20px;
+        font-weight: 600px;
+    }
+
+    .Header__buttons{
+        display: flex;
+        gap: 9px;
+    }
+
+    >a{
+        text-decoration: none;
+        font-size: 20px;
+    }
+}

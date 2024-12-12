@@ -1,0 +1,21 @@
+.NavBar{
+    display: flex;
+    gap: 35px;
+    align-items: center;
+    justify-content: center;
+    width: 619px;
+    height: 45.95px;
+    border-radius: 30px;
+    background-color: #F8F8F8;
+    font-size: 14px;
+    font-weight: 400;
+
+    >a{
+        text-decoration: none;
+    }
+
+    .NavBar__p{
+        text-decoration: none;
+        color: #4A1A8C;
+    }
+}

@@ -1,0 +1,18 @@
+.Profile{
+    width: 41.87px;
+    height: 41.87px;
+    border-radius: 14px;
+    background-color: #3A2557;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    >img{
+        width: 20.94px;
+        height: 20.94px;
+    }
+}
