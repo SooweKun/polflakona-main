@@ -26,8 +26,8 @@ export const Footer = () => {
                     <div className={styles.Footer__inner_info_inf}>
                         <h1>Информация</h1>
                         <Link to="/oferta"><p>Оферта</p></Link>
-                        <Link to="sogl"><p>Пользовательское соглашение</p></Link>
-                        <Link to="conf"><p>Политика конфиденциальности</p></Link>
+                        <Link to="/sogl"><p>Пользовательское соглашение</p></Link>
+                        <Link to="/confid"><p>Политика конфиденциальности</p></Link>
                     </div>
                     <div className={styles.Footer__inner_info_contacts}>
                         <Link to="/contacts"><h1>Контакты</h1></Link>

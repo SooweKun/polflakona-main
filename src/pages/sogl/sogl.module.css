@@ -1,12 +1,12 @@
-.Oferta{
+.Sogl{
     margin-top: 50px;
 
-    .Oferta__inner{
+    .Sogl__inner{
         max-width: 1056px;
         margin: 0 auto;
         margin-bottom: 50px;
 
-        .Oferta__inner_navig{
+        .Sogl__inner_navig{
             display: flex;
             align-items: center;
             gap: 3px;
@@ -18,7 +18,7 @@
                 color: #4A1A8C;
             }
 
-            .Oferta__inner_navig_p{
+            .Sogl__inner_navig_p{
                 color: #3A2557;
                 text-decoration: underline;
                 text-underline-offset: 4px;
@@ -32,7 +32,7 @@
             margin-top: 50px;
         }
 
-        .Oferta__inner_content{
+        .Sogl__inner_content{
             width: 100%;
             margin-top: 50px;
             border-radius: 20px;
@@ -45,30 +45,15 @@
             align-items: flex-start;
             gap: 50px;
 
-            >h1{
-                font-size: 20px;
-                font-weight: 300;
-            }
-        }
-
         .content__text_1 > p,
-        .content__text_2 > p,
-        .content__text_3 > p,
-        .content__text_4 > p,
-        .content__text_5 > p,
-        .content__text_6 > p, 
-        .content__text_7 > p{
+        .content__text_2 > p{
             margin-top: 20px;
         }
 
         .content__text_1 >p span,
-        .content__text_2 >p span,
-        .content__text_3 >p span,
-        .content__text_4 >p span,
-        .content__text_5 >p span,
-        .content__text_6 >p span,
-        .content__text_7 >p span{
+        .content__text_2 >p span{
                 color: #9D70DC;
         }
-    }   
+        }
+    }
 }

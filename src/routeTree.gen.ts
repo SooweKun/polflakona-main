@@ -14,12 +14,18 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as LayoutmainImport } from './routes/_layoutmain'
 import { Route as IndexImport } from './routes/index'
 import { Route as LayoutmainSoglIndexImport } from './routes/_layoutmain/sogl/index'
+import { Route as LayoutmainRegIndexImport } from './routes/_layoutmain/reg/index'
+import { Route as LayoutmainProfileIndexImport } from './routes/_layoutmain/profile/index'
 import { Route as LayoutmainPayIndexImport } from './routes/_layoutmain/pay/index'
 import { Route as LayoutmainOfertaIndexImport } from './routes/_layoutmain/oferta/index'
+import { Route as LayoutmainDostavkaIndexImport } from './routes/_layoutmain/dostavka/index'
 import { Route as LayoutmainContactsIndexImport } from './routes/_layoutmain/contacts/index'
 import { Route as LayoutmainConfidIndexImport } from './routes/_layoutmain/confid/index'
+import { Route as LayoutmainCatalogIndexImport } from './routes/_layoutmain/catalog/index'
+import { Route as LayoutmainCarzinaIndexImport } from './routes/_layoutmain/carzina/index'
 import { Route as LayoutmainBrendsIndexImport } from './routes/_layoutmain/brends/index'
 import { Route as LayoutmainAboutUsIndexImport } from './routes/_layoutmain/aboutUs/index'
+import { Route as LayoutmainCardinfoCardInfoImport } from './routes/_layoutmain/cardinfo/cardInfo'
 
 // Create/Update Routes
 
@@ -40,6 +46,18 @@ const LayoutmainSoglIndexRoute = LayoutmainSoglIndexImport.update({
   getParentRoute: () => LayoutmainRoute,
 } as any)
 
+const LayoutmainRegIndexRoute = LayoutmainRegIndexImport.update({
+  id: '/reg/',
+  path: '/reg/',
+  getParentRoute: () => LayoutmainRoute,
+} as any)
+
+const LayoutmainProfileIndexRoute = LayoutmainProfileIndexImport.update({
+  id: '/profile/',
+  path: '/profile/',
+  getParentRoute: () => LayoutmainRoute,
+} as any)
+
 const LayoutmainPayIndexRoute = LayoutmainPayIndexImport.update({
   id: '/pay/',
   path: '/pay/',
@@ -49,6 +67,12 @@ const LayoutmainPayIndexRoute = LayoutmainPayIndexImport.update({
 const LayoutmainOfertaIndexRoute = LayoutmainOfertaIndexImport.update({
   id: '/oferta/',
   path: '/oferta/',
+  getParentRoute: () => LayoutmainRoute,
+} as any)
+
+const LayoutmainDostavkaIndexRoute = LayoutmainDostavkaIndexImport.update({
+  id: '/dostavka/',
+  path: '/dostavka/',
   getParentRoute: () => LayoutmainRoute,
 } as any)
 
@@ -64,6 +88,18 @@ const LayoutmainConfidIndexRoute = LayoutmainConfidIndexImport.update({
   getParentRoute: () => LayoutmainRoute,
 } as any)
 
+const LayoutmainCatalogIndexRoute = LayoutmainCatalogIndexImport.update({
+  id: '/catalog/',
+  path: '/catalog/',
+  getParentRoute: () => LayoutmainRoute,
+} as any)
+
+const LayoutmainCarzinaIndexRoute = LayoutmainCarzinaIndexImport.update({
+  id: '/carzina/',
+  path: '/carzina/',
+  getParentRoute: () => LayoutmainRoute,
+} as any)
+
 const LayoutmainBrendsIndexRoute = LayoutmainBrendsIndexImport.update({
   id: '/brends/',
   path: '/brends/',
@@ -75,6 +111,14 @@ const LayoutmainAboutUsIndexRoute = LayoutmainAboutUsIndexImport.update({
   path: '/aboutUs/',
   getParentRoute: () => LayoutmainRoute,
 } as any)
+
+const LayoutmainCardinfoCardInfoRoute = LayoutmainCardinfoCardInfoImport.update(
+  {
+    id: '/cardinfo/cardInfo',
+    path: '/cardinfo/cardInfo',
+    getParentRoute: () => LayoutmainRoute,
+  } as any,
+)
 
 // Populate the FileRoutesByPath interface
 
@@ -94,6 +138,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutmainImport
       parentRoute: typeof rootRoute
     }
+    '/_layoutmain/cardinfo/cardInfo': {
+      id: '/_layoutmain/cardinfo/cardInfo'
+      path: '/cardinfo/cardInfo'
+      fullPath: '/cardinfo/cardInfo'
+      preLoaderRoute: typeof LayoutmainCardinfoCardInfoImport
+      parentRoute: typeof LayoutmainImport
+    }
     '/_layoutmain/aboutUs/': {
       id: '/_layoutmain/aboutUs/'
       path: '/aboutUs'
@@ -106,6 +157,20 @@ declare module '@tanstack/react-router' {
       path: '/brends'
       fullPath: '/brends'
       preLoaderRoute: typeof LayoutmainBrendsIndexImport
+      parentRoute: typeof LayoutmainImport
+    }
+    '/_layoutmain/carzina/': {
+      id: '/_layoutmain/carzina/'
+      path: '/carzina'
+      fullPath: '/carzina'
+      preLoaderRoute: typeof LayoutmainCarzinaIndexImport
+      parentRoute: typeof LayoutmainImport
+    }
+    '/_layoutmain/catalog/': {
+      id: '/_layoutmain/catalog/'
+      path: '/catalog'
+      fullPath: '/catalog'
+      preLoaderRoute: typeof LayoutmainCatalogIndexImport
       parentRoute: typeof LayoutmainImport
     }
     '/_layoutmain/confid/': {
@@ -122,6 +187,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutmainContactsIndexImport
       parentRoute: typeof LayoutmainImport
     }
+    '/_layoutmain/dostavka/': {
+      id: '/_layoutmain/dostavka/'
+      path: '/dostavka'
+      fullPath: '/dostavka'
+      preLoaderRoute: typeof LayoutmainDostavkaIndexImport
+      parentRoute: typeof LayoutmainImport
+    }
     '/_layoutmain/oferta/': {
       id: '/_layoutmain/oferta/'
       path: '/oferta'
@@ -134,6 +206,20 @@ declare module '@tanstack/react-router' {
       path: '/pay'
       fullPath: '/pay'
       preLoaderRoute: typeof LayoutmainPayIndexImport
+      parentRoute: typeof LayoutmainImport
+    }
+    '/_layoutmain/profile/': {
+      id: '/_layoutmain/profile/'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof LayoutmainProfileIndexImport
+      parentRoute: typeof LayoutmainImport
+    }
+    '/_layoutmain/reg/': {
+      id: '/_layoutmain/reg/'
+      path: '/reg'
+      fullPath: '/reg'
+      preLoaderRoute: typeof LayoutmainRegIndexImport
       parentRoute: typeof LayoutmainImport
     }
     '/_layoutmain/sogl/': {
@@ -149,22 +235,34 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 interface LayoutmainRouteChildren {
+  LayoutmainCardinfoCardInfoRoute: typeof LayoutmainCardinfoCardInfoRoute
   LayoutmainAboutUsIndexRoute: typeof LayoutmainAboutUsIndexRoute
   LayoutmainBrendsIndexRoute: typeof LayoutmainBrendsIndexRoute
+  LayoutmainCarzinaIndexRoute: typeof LayoutmainCarzinaIndexRoute
+  LayoutmainCatalogIndexRoute: typeof LayoutmainCatalogIndexRoute
   LayoutmainConfidIndexRoute: typeof LayoutmainConfidIndexRoute
   LayoutmainContactsIndexRoute: typeof LayoutmainContactsIndexRoute
+  LayoutmainDostavkaIndexRoute: typeof LayoutmainDostavkaIndexRoute
   LayoutmainOfertaIndexRoute: typeof LayoutmainOfertaIndexRoute
   LayoutmainPayIndexRoute: typeof LayoutmainPayIndexRoute
+  LayoutmainProfileIndexRoute: typeof LayoutmainProfileIndexRoute
+  LayoutmainRegIndexRoute: typeof LayoutmainRegIndexRoute
   LayoutmainSoglIndexRoute: typeof LayoutmainSoglIndexRoute
 }
 
 const LayoutmainRouteChildren: LayoutmainRouteChildren = {
+  LayoutmainCardinfoCardInfoRoute: LayoutmainCardinfoCardInfoRoute,
   LayoutmainAboutUsIndexRoute: LayoutmainAboutUsIndexRoute,
   LayoutmainBrendsIndexRoute: LayoutmainBrendsIndexRoute,
+  LayoutmainCarzinaIndexRoute: LayoutmainCarzinaIndexRoute,
+  LayoutmainCatalogIndexRoute: LayoutmainCatalogIndexRoute,
   LayoutmainConfidIndexRoute: LayoutmainConfidIndexRoute,
   LayoutmainContactsIndexRoute: LayoutmainContactsIndexRoute,
+  LayoutmainDostavkaIndexRoute: LayoutmainDostavkaIndexRoute,
   LayoutmainOfertaIndexRoute: LayoutmainOfertaIndexRoute,
   LayoutmainPayIndexRoute: LayoutmainPayIndexRoute,
+  LayoutmainProfileIndexRoute: LayoutmainProfileIndexRoute,
+  LayoutmainRegIndexRoute: LayoutmainRegIndexRoute,
   LayoutmainSoglIndexRoute: LayoutmainSoglIndexRoute,
 }
 
@@ -175,24 +273,36 @@ const LayoutmainRouteWithChildren = LayoutmainRoute._addFileChildren(
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '': typeof LayoutmainRouteWithChildren
+  '/cardinfo/cardInfo': typeof LayoutmainCardinfoCardInfoRoute
   '/aboutUs': typeof LayoutmainAboutUsIndexRoute
   '/brends': typeof LayoutmainBrendsIndexRoute
+  '/carzina': typeof LayoutmainCarzinaIndexRoute
+  '/catalog': typeof LayoutmainCatalogIndexRoute
   '/confid': typeof LayoutmainConfidIndexRoute
   '/contacts': typeof LayoutmainContactsIndexRoute
+  '/dostavka': typeof LayoutmainDostavkaIndexRoute
   '/oferta': typeof LayoutmainOfertaIndexRoute
   '/pay': typeof LayoutmainPayIndexRoute
+  '/profile': typeof LayoutmainProfileIndexRoute
+  '/reg': typeof LayoutmainRegIndexRoute
   '/sogl': typeof LayoutmainSoglIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '': typeof LayoutmainRouteWithChildren
+  '/cardinfo/cardInfo': typeof LayoutmainCardinfoCardInfoRoute
   '/aboutUs': typeof LayoutmainAboutUsIndexRoute
   '/brends': typeof LayoutmainBrendsIndexRoute
+  '/carzina': typeof LayoutmainCarzinaIndexRoute
+  '/catalog': typeof LayoutmainCatalogIndexRoute
   '/confid': typeof LayoutmainConfidIndexRoute
   '/contacts': typeof LayoutmainContactsIndexRoute
+  '/dostavka': typeof LayoutmainDostavkaIndexRoute
   '/oferta': typeof LayoutmainOfertaIndexRoute
   '/pay': typeof LayoutmainPayIndexRoute
+  '/profile': typeof LayoutmainProfileIndexRoute
+  '/reg': typeof LayoutmainRegIndexRoute
   '/sogl': typeof LayoutmainSoglIndexRoute
 }
 
@@ -200,12 +310,18 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/_layoutmain': typeof LayoutmainRouteWithChildren
+  '/_layoutmain/cardinfo/cardInfo': typeof LayoutmainCardinfoCardInfoRoute
   '/_layoutmain/aboutUs/': typeof LayoutmainAboutUsIndexRoute
   '/_layoutmain/brends/': typeof LayoutmainBrendsIndexRoute
+  '/_layoutmain/carzina/': typeof LayoutmainCarzinaIndexRoute
+  '/_layoutmain/catalog/': typeof LayoutmainCatalogIndexRoute
   '/_layoutmain/confid/': typeof LayoutmainConfidIndexRoute
   '/_layoutmain/contacts/': typeof LayoutmainContactsIndexRoute
+  '/_layoutmain/dostavka/': typeof LayoutmainDostavkaIndexRoute
   '/_layoutmain/oferta/': typeof LayoutmainOfertaIndexRoute
   '/_layoutmain/pay/': typeof LayoutmainPayIndexRoute
+  '/_layoutmain/profile/': typeof LayoutmainProfileIndexRoute
+  '/_layoutmain/reg/': typeof LayoutmainRegIndexRoute
   '/_layoutmain/sogl/': typeof LayoutmainSoglIndexRoute
 }
 
@@ -214,34 +330,52 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | ''
+    | '/cardinfo/cardInfo'
     | '/aboutUs'
     | '/brends'
+    | '/carzina'
+    | '/catalog'
     | '/confid'
     | '/contacts'
+    | '/dostavka'
     | '/oferta'
     | '/pay'
+    | '/profile'
+    | '/reg'
     | '/sogl'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | ''
+    | '/cardinfo/cardInfo'
     | '/aboutUs'
     | '/brends'
+    | '/carzina'
+    | '/catalog'
     | '/confid'
     | '/contacts'
+    | '/dostavka'
     | '/oferta'
     | '/pay'
+    | '/profile'
+    | '/reg'
     | '/sogl'
   id:
     | '__root__'
     | '/'
     | '/_layoutmain'
+    | '/_layoutmain/cardinfo/cardInfo'
     | '/_layoutmain/aboutUs/'
     | '/_layoutmain/brends/'
+    | '/_layoutmain/carzina/'
+    | '/_layoutmain/catalog/'
     | '/_layoutmain/confid/'
     | '/_layoutmain/contacts/'
+    | '/_layoutmain/dostavka/'
     | '/_layoutmain/oferta/'
     | '/_layoutmain/pay/'
+    | '/_layoutmain/profile/'
+    | '/_layoutmain/reg/'
     | '/_layoutmain/sogl/'
   fileRoutesById: FileRoutesById
 }
@@ -276,14 +410,24 @@ export const routeTree = rootRoute
     "/_layoutmain": {
       "filePath": "_layoutmain.jsx",
       "children": [
+        "/_layoutmain/cardinfo/cardInfo",
         "/_layoutmain/aboutUs/",
         "/_layoutmain/brends/",
+        "/_layoutmain/carzina/",
+        "/_layoutmain/catalog/",
         "/_layoutmain/confid/",
         "/_layoutmain/contacts/",
+        "/_layoutmain/dostavka/",
         "/_layoutmain/oferta/",
         "/_layoutmain/pay/",
+        "/_layoutmain/profile/",
+        "/_layoutmain/reg/",
         "/_layoutmain/sogl/"
       ]
+    },
+    "/_layoutmain/cardinfo/cardInfo": {
+      "filePath": "_layoutmain/cardinfo/cardInfo.jsx",
+      "parent": "/_layoutmain"
     },
     "/_layoutmain/aboutUs/": {
       "filePath": "_layoutmain/aboutUs/index.jsx",
@@ -291,6 +435,14 @@ export const routeTree = rootRoute
     },
     "/_layoutmain/brends/": {
       "filePath": "_layoutmain/brends/index.jsx",
+      "parent": "/_layoutmain"
+    },
+    "/_layoutmain/carzina/": {
+      "filePath": "_layoutmain/carzina/index.jsx",
+      "parent": "/_layoutmain"
+    },
+    "/_layoutmain/catalog/": {
+      "filePath": "_layoutmain/catalog/index.jsx",
       "parent": "/_layoutmain"
     },
     "/_layoutmain/confid/": {
@@ -301,12 +453,24 @@ export const routeTree = rootRoute
       "filePath": "_layoutmain/contacts/index.jsx",
       "parent": "/_layoutmain"
     },
+    "/_layoutmain/dostavka/": {
+      "filePath": "_layoutmain/dostavka/index.jsx",
+      "parent": "/_layoutmain"
+    },
     "/_layoutmain/oferta/": {
       "filePath": "_layoutmain/oferta/index.jsx",
       "parent": "/_layoutmain"
     },
     "/_layoutmain/pay/": {
       "filePath": "_layoutmain/pay/index.jsx",
+      "parent": "/_layoutmain"
+    },
+    "/_layoutmain/profile/": {
+      "filePath": "_layoutmain/profile/index.jsx",
+      "parent": "/_layoutmain"
+    },
+    "/_layoutmain/reg/": {
+      "filePath": "_layoutmain/reg/index.jsx",
       "parent": "/_layoutmain"
     },
     "/_layoutmain/sogl/": {
