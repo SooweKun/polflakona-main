@@ -15,7 +15,9 @@
     "@tanstack/router-vite-plugin": "^1.38.0",
     "axios": "^1.7.9",
     "react": "^18.2.0",
+    "react-alice-carousel": "^2.9.1",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.54.1",
     "react-whirligig": "^6.6.15",
     "zustand": "^5.0.2"
   },

@@ -11,8 +11,8 @@ export const Footer = () => {
                 <div className={styles.Footer__inner_info}>
                     <div className={styles.Footer__inner_info_title}>
                         <h1>POLFLACONA</h1>
-                        <p>Это пространство, с самой разной парфюмерией:
-                           от классики до ниши, от России до Франции и Италии,
+                        <p>Это пространство, с самой разной  парфюмерией:
+                           от классики до ниши,  от России до Франции и Италии,
                            от популярного до никому неизвестного.</p>
                     </div>
                     <div className={styles.Footer__inner_info_aboutUs}>

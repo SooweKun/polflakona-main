@@ -1,0 +1,77 @@
+.Carzina{
+    margin-top: 50px;
+
+    .Carzina__inner{
+        max-width: 1056px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+
+        .Carzina__inner_navig{
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 12px;
+            font-weight: 400;
+
+            >a{
+                text-decoration: none;
+                color: #4A1A8C;
+            }
+
+            .Carzina__inner_navig_p{
+                color: #3A2557;
+                text-decoration: underline;
+                text-underline-offset: 4px;
+            }
+        }
+
+        >h1{
+            font-size: 32px;
+            font-weight: 700;
+            color: #3A2557;
+            margin-top: 50px;
+        }
+
+        .Carzina__inner_content{
+            margin-top: 50px;
+            display: flex;
+            gap: 75px;
+            height: 320px;
+
+            .content__text{
+                margin-top: 60.5px;
+
+                >h1{
+                    font-size: 42px;
+                    font-weight: 600;
+                    color: #593780;
+                }
+
+                >p{
+                    margin-top: 20px;
+                    font-size: 20px;
+                    font-weight: 500;
+                    color: #593780;
+                }
+
+                >button{
+                    margin-top: 50px;
+                    width: 178px;
+                    height: 54px;
+                    border-radius: 16px;
+                    background-color: #593780;
+                    color: #F1EDF7;
+                    font-size: 20px;
+                    font-weight: 700;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+
+            >img{
+                height: 100%;
+                width: 320px;
+            }
+        }
+    }
+}
