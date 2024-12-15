@@ -19,7 +19,7 @@ export const Footer = () => {
                         <Link to="/aboutUs"><h1>О нас </h1></Link>
                         <Link to="/brends"><p>Бренды</p></Link>
                         <Link to="/dostavka"><p>Доставка</p></Link>
-                        <p>Наш каталог</p>
+                        <Link to="/catalog"><p>Наш каталог</p></Link>
                         <p>Хиты продаж</p>
                         <Link to="/pay"><p>Способы оплаты</p></Link>
                     </div>
