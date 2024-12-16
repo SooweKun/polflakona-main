@@ -59,38 +59,23 @@ const info = {
 
 export const Catalog = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [isOpen2, setIsOpen2] = useState(false);
-    const [isOpen3, setIsOpen3] = useState(false);
-    const [isOpen4, setIsOpen4] = useState(false);
-    const [isOpen5, setIsOpen5] = useState(false);
+    const [openModule, setOpenModule] = useState(null);
     const [selectedOption, setSelectedOption] = useState('по популярности');
     const countPlus = useStore(state => state.countPlus)
-    const [fill, setFill] = useState("none");
+    const {fill, setFill} = useStore(state => state)
 
     const handleClick = () => {
-        setFill(prev => prev === "none" ? "#603699" : "none" )
-        countPlus();
-    }
+        setFill()
+        countPlus()
+    };
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     }
 
-    const toggleDropdown2 = () => {
-        setIsOpen2(!isOpen2);
-    }
-
-    const toggleDropdown3 = () => {
-        setIsOpen3(!isOpen3);
-    }
-
-    const toggleDropdown4 = () => {
-        setIsOpen4(!isOpen4);
-    }
-
-    const toggleDropdown5 = () => {
-        setIsOpen5(!isOpen5);
-    }
+    const openModules = (module) => {
+        setOpenModule(openModule === module ? null : module); // Переключение состояния
+    };
 
     const handleOptionClick = (option) => {
         setSelectedOption(option);
@@ -120,50 +105,66 @@ export const Catalog = () => {
                         </div>
                     </div>
                     <div className={styles.content__info}>
-                        <div className={styles.info_navbar} style={{height: isOpen2 ? "357" : "234"}}>
-                            <div className={styles.navbar__wooman_module}>
-                                <button onClick={toggleDropdown2}>
+                        <div className={styles.info_navbar}>
+                            <div className={styles.navbar__module}>
+                                <button onClick={() => openModules("wooman")} className={styles.navbar__module_btn}>
                                     Женская парфюмерия
-                                    <img src={isOpen2 ? ArrowUp : ArrowDown} alt="" />
+                                    <img src={isOpen ? ArrowUp : ArrowDown} alt="" />
                                 </button>
-                                <div className={styles.module_text} style={{display: isOpen2 ? 'flex' : 'none'}}>
-                                    <button>Духи</button>
-                                    <button>Парфюмерная вода</button>
-                                    <button>Туалетная вода</button>
-                                </div>
+                                {
+                                    openModule === "wooman" && (
+                                        <div className={styles.module_text}>
+                                            <button>Духи</button>
+                                            <button>Парфюмерная вода</button>
+                                            <button>Туалетная вода</button>
+                                        </div>
+                                    )
+                                }
                             </div>
-                            <div className={styles.navbar__man_module}>
-                                <button onClick={toggleDropdown3}>
+                            <div className={styles.navbar__module}>
+                                <button onClick={() => openModules("man")} className={styles.navbar__module_btn}>
                                     Мужская парфюмерия
                                     <img src={isOpen ? ArrowUp : ArrowDown} alt="" />
                                 </button>
-                                <div className={styles.module_text} style={{display: isOpen3 ? 'flex' : 'none'}}>
-                                    <button>Духи</button>
-                                    <button>Парфюмерная вода</button>
-                                    <button>Туалетная вода</button>
-                                </div>
+                                {
+                                    openModule === "man" && (
+                                        <div className={styles.module_text}>
+                                            <button>Духи</button>
+                                            <button>Парфюмерная вода</button>
+                                            <button>Туалетная вода</button>
+                                        </div>
+                                    )
+                                }
                             </div>
-                            <div className={styles.navbar__universal_module}>
-                                <button onClick={toggleDropdown4}>
+                            <div className={styles.navbar__module}>
+                                <button onClick={() => openModules("universal")} className={styles.navbar__module_btn}>
                                     Унисекс парфюмерия
                                     <img src={isOpen ? ArrowUp : ArrowDown} alt="" />
                                 </button>
-                                <div className={styles.module_text} style={{display: isOpen4 ? 'flex' : 'none'}}>
-                                    <button>Духи</button>
-                                    <button>Парфюмерная вода</button>
-                                    <button>Туалетная вода</button>
-                                </div>
+                               {
+                                   openModule === "universal" && (
+                                       <div className={styles.module_text}>
+                                           <button>Духи</button>
+                                           <button>Парфюмерная вода</button>
+                                           <button>Туалетная вода</button>
+                                       </div>
+                                   )
+                               }
                             </div>
-                            <div className={styles.navbar__nusha_module}>
-                                <button onClick={toggleDropdown5}>
+                            <div className={styles.navbar__module}>
+                                <button onClick={() => openModules("nusha")} className={styles.navbar__module_btn}>
                                     Нишевая парфюмерия
-                                    <img src={isOpen ? ArrowUp : ArrowDown} alt="" />
+                                    <img src={openModules === "nusha" ? ArrowUp : ArrowDown} alt="" />
                                 </button>
-                                <div className={styles.module_text} style={{display: isOpen5 ? 'flex' : 'none'}}>
-                                    <button>Духи</button>
-                                    <button>Парфюмерная вода</button>
-                                    <button>Туалетная вода</button>
-                                </div>
+                                {
+                                    openModule === "nusha" && (
+                                        <div className={styles.module_text}>
+                                            <button>Духи</button>
+                                            <button>Парфюмерная вода</button>
+                                            <button>Туалетная вода</button>
+                                        </div>
+                                    )
+                                }
                             </div>
                         </div>
                         <div className={styles.info_catalog}>

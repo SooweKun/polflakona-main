@@ -107,8 +107,64 @@
 
                 .info_navbar{
                     width: 292px;
-                    height: 234px;
-                    background-color: red;
+                    height: max-content;
+                    max-height: 629px;
+                    transition: 2s;
+                    border-radius: 20px;
+                    padding: 20px;
+                    background-color: rgb(243, 243, 243);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 26px;
+                    margin-top: 20px;
+
+                    .navbar__module{
+                       
+                        
+                        .navbar__module_btn{
+                            width: 252px;
+                            height: 29px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            border: none;
+                            background-color: rgb(243, 243, 243);
+                            cursor: pointer;
+                            font-size: 16px;
+                            font-weight: 600;
+
+                            >img{
+                                width: 30px;
+                                height: 25px;
+                            }
+                        }
+
+                        .module_text{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            gap: 4px;
+
+                            >button{
+                                width: 252px;
+                                height: 37px;
+                                background-color: transparent;
+                                border: none;
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: center;
+                                color: #949494;
+                                font-size: 14px;
+                                font-weight: 500;
+                                cursor: pointer;
+
+                                &:focus{
+                                    background-color: #F7F1FF;
+                                    color: #603699;
+                                }
+                            }
+                        }
+                    }
                 }
 
                 .info_catalog{

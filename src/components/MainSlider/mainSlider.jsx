@@ -63,7 +63,6 @@ export const MainSlider = () => {
 
     const handleClick = () => {
         setFill(prev => prev === "none" ? "#603699" : "none" )
-        
     }
  
     return(
@@ -78,6 +77,7 @@ export const MainSlider = () => {
                                 <Heart
                                     fill={fill}
                                     handleClick={handleClick}
+                                    onClick={countPlus}
                                     className={styles.MainSlider__card_favorite}
                                 />
                                 <img src={img} alt="" className={styles.MainSlider__card_flacon}/>

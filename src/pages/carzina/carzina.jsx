@@ -19,7 +19,7 @@ export const Carzina = () => {
                     <div className={styles.content__text}>
                         <h1>В вашей корзине ничего нет ....</h1>
                         <p>воспользуйтесь каталогом и добавьте в корзину товары</p>
-                        <button>В КАТАЛОГ</button>
+                        <Link to="/catalog"><button className={styles.text_button}>В КАТАЛОГ</button></Link>
                     </div>
                     <img src={carzina} alt="" />
                 </div>
