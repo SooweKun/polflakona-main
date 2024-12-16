@@ -1,0 +1,48 @@
+.Map{
+    margin-top: 50px;
+
+    .Map__inner{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .content{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            >h1{
+                color: #8F5BD7;
+                font-size: 64px;
+                font-weight: 700;
+            }
+
+            >h2{
+                font-size: 90px;
+                font-weight: 700;
+                color: #3A2557;
+                display: flex;
+                padding-left: 80px;
+                justify-content: center;
+            }
+        }
+
+        .Map_text{
+            display: flex;
+            gap: 40px;
+
+            >p{
+                width: 364px;
+                height: 162px;
+                font-size: 20px;
+                font-weight: 400;
+                color: #3A2557;
+            }
+
+            >img{
+                width: 594px;
+                height: 483px;
+            }
+        }
+    }
+}

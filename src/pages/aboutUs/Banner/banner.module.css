@@ -1,0 +1,49 @@
+.Banner{
+    max-width: 1046px;
+    margin: 0 auto;
+    margin-top: 50px;
+
+    .Banner__inner{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background: url("src/assets/banner2.png");
+        background-size: 100% 100%;
+        height: 593px;
+        padding-left: 50px;
+
+
+        .Banner__text{
+            display: flex;
+            flex-direction: column;
+            width: 900px;
+            height: 119px;
+            color: white;
+            gap: 20px;
+            margin-top: 148px;
+
+            .Banner__title{
+                font-size: 48px;
+                font-weight: 700;
+            }
+
+            .Banner__description{
+                font-size: 48px;
+                font-weight: 700;
+                width: 900px;
+                height: 57px;
+            }
+        }
+
+        .Banner__button{
+            width: 214px;
+            height: 55px;
+            border-radius: 20px;
+            border: none;
+            color: #4A1A8C;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    }
+}
