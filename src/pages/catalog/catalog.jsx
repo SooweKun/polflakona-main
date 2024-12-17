@@ -9,7 +9,7 @@ import two from "/src/assets/2.png"
 import three from "/src/assets/3.png"
 import four from "/src/assets/4.png"
 import five from "/src/assets/5.png"
-import { useStore } from "/src/store/store";
+import { useStore, useStoreCard } from "/src/store/store";
 
 const text = ["по популярности", "сначала дешевые", "сначала дороже"]
 
@@ -60,8 +60,7 @@ const info = {
 export const Catalog = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [openModule, setOpenModule] = useState(null);
-    const [selectedOption, setSelectedOption] = useState('по популярности');
-    const countPlus = useStore(state => state.countPlus)
+    const [selectedOption, setSelectedOption] = useState('по популярности')
     const {fill, setFill} = useStore(state => state)
 
     const handleClick = () => {
@@ -168,12 +167,20 @@ export const Catalog = () => {
                             </div>
                         </div>
                         <div className={styles.info_catalog}>
-                            {info.data.map(({id, price, img, title, name}) =>(
-                                <div className={styles.MainSlider__card} key={id}>
+                            {info.data.map(({id, price, img, title, name}) =>{
+                                const addCard = useStoreCard(state => state.addCard)
+                                const countPlus = useStore(state => state.countPlus)
+                                const [fill, setFill] = useState("none");
+                                const handleClick = () => {
+                                    setFill(prev => prev === "none" ? "#603699" : "none")
+                                }
+                                return(
+                                    <div className={styles.MainSlider__card} key={id}>
                                 <div className={styles.MainSlider__card_imgs}>
                                     <Heart
                                         fill={fill}
                                         handleClick={handleClick}
+                                        onClick={countPlus}
                                         className={styles.MainSlider__card_favorite}
                                     />
                                     <img src={img} alt="" className={styles.MainSlider__card_flacon}/>
@@ -184,11 +191,12 @@ export const Catalog = () => {
                                     <p className={styles.MainSlider__card_text_p}>Есть в наличие</p>
                                 </div>
                                 <div className={styles.MainSlider__card_btn}>
-                                    <button className={styles.MainSlider__card_btn_carzina} onClick={countPlus}>В корзину</button>
+                                    <button className={styles.MainSlider__card_btn_carzina} onClick={() => addCard([ {id, price, img, title, name} ])}>В корзину</button>
                                     <button className={styles.MainSlider__card_btn_click}>Купить в 1 клик</button>
                                 </div>
                             </div>
-                            ))}
+                                )
+                            })}
                         </div>
                     </div>
                 </div>

@@ -31,47 +31,5 @@
             color: #3A2557;
             margin-top: 50px;
         }
-
-        .Carzina__inner_content{
-            margin-top: 50px;
-            display: flex;
-            gap: 75px;
-            height: 320px;
-
-            .content__text{
-                margin-top: 60.5px;
-
-                >h1{
-                    font-size: 42px;
-                    font-weight: 600;
-                    color: #593780;
-                }
-
-                >p{
-                    margin-top: 20px;
-                    font-size: 20px;
-                    font-weight: 500;
-                    color: #593780;
-                }
-
-                .text_button{
-                    margin-top: 50px;
-                    width: 178px;
-                    height: 54px;
-                    border-radius: 16px;
-                    background-color: #593780;
-                    color: #F1EDF7;
-                    font-size: 20px;
-                    font-weight: 700;
-                    border: none;
-                    cursor: pointer;
-                }
-            }
-
-            >img{
-                height: 100%;
-                width: 320px;
-            }
-        }
     }
 }

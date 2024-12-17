@@ -92,7 +92,7 @@ export const MainSlider = () => {
                                     <p className={styles.MainSlider__card_text_p}>Есть в наличие</p>
                                 </div>
                                 <div className={styles.MainSlider__card_btn}>
-                                    <button className={styles.MainSlider__card_btn_carzina} onClick={() => addCard({ id, price, img, title, name })}>В корзину</button>
+                                    <button className={styles.MainSlider__card_btn_carzina} onClick={() => addCard([ {id, price, img, title, name} ])}>В корзину</button>
                                     <button className={styles.MainSlider__card_btn_click}>Купить в 1 клик</button>
                                 </div>
                             </div>

@@ -13,21 +13,23 @@ export const useStore = create((set) => ({
         name: ("")
     },
     setData: () => set((state) => (
-        {data: state.data}
+        { data: state.data }
     ))
 }))
 
 export const useStoreCard = create(
-	set => ({
-		card: {
-			id: 0,
-			price: '',
-			img: '',
-			title: '',
-			name: '',
-		},
-		addCard(data) {
-			set(() => ({card: data}));
-		},
-	}),
+    set => ({
+        card: [
+            {
+                id: 0,
+                price: '',
+                img: '',
+                title: '',
+                name: '',
+            },
+        ],
+        addCard(data) {
+            set(() => ({ card: data }));
+        },
+    }),
 );
