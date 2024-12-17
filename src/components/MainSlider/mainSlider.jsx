@@ -3,7 +3,7 @@
 // import { Card } from "./Card/card";
 import { Heart } from "/src/components/MainSlider/heart/heart.jsx";
 import styles from "/src/components/MainSlider/mainSlider.module.css"
-import { useStore, useStoreCard } from "/src/store/store";
+import { useStoreCard } from "/src/store/store";
 import { useState } from "react";
 import { useNavigate } from '@tanstack/react-router';
 import one from "/src/assets/1.png"

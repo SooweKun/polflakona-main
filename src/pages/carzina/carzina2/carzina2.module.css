@@ -1,16 +1,16 @@
-.Carzina2{
+.Carzina2 {
     margin-top: 36px;
     display: flex;
     gap: 13px;
 
-    .Carzina2__cards{
+    .Carzina2__cards {
         width: 654px;
         height: max-content;
         display: flex;
         flex-direction: column;
         gap: 8px;
 
-        .card{
+        .card {
             width: 100%;
             height: 183px;
             border-radius: 20px;
@@ -19,49 +19,49 @@
             display: flex;
             gap: 24px;
 
-            >img{
+            >img {
                 width: 124px;
                 height: 119px;
                 border-radius: 20px;
             }
 
-            .card__text{
+            .card__text {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 width: 590px;
 
-                >h1{
+                >h1 {
                     font-size: 20px;
                     font-weight: 600;
                     color: black;
                 }
 
-                >p{
+                >p {
                     font-size: 20px;
                     font-weight: 400;
                     color: rgb(80, 79, 79);
                     margin-top: 10px;
                 }
 
-                .card__text_btn{
+                .card__text_btn {
                     display: flex;
                     width: 100%;
                     justify-content: space-between;
                     align-items: center;
                     margin-top: 27px;
 
-                    .card__text_btn_left{
+                    .card__text_btn_left {
                         display: flex;
                         gap: 4px;
 
-                        >img{
+                        >img {
                             width: 32px;
                             height: 34px;
                             cursor: pointer;
                         }
 
-                        .counter{
+                        .counter {
                             width: 128px;
                             height: 34px;
                             border-radius: 14px;
@@ -72,7 +72,7 @@
                             padding-left: 13px;
                             padding-right: 10px;
 
-                            >button{
+                            >button {
                                 border: none;
                                 background-color: transparent;
                                 cursor: pointer;
@@ -80,14 +80,14 @@
                                 font-weight: 400;
                             }
 
-                            >p{
+                            >p {
                                 font-size: 16px;
                                 font-weight: 400;
                             }
                         }
                     }
 
-                    .price{
+                    .price {
                         color: #3A2557;
                         font-size: 24px;
                         font-weight: 700;
@@ -97,10 +97,138 @@
         }
     }
 
-    .Carzina2__menu{
+    .Carzina2__menu {
         width: 389px;
         height: 567px;
         border-radius: 20px;
         background-color: #f5f5f5;
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-top: 18px;
+
+        .menu_count {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+
+            .card.lenght {
+                font-size: 16px;
+                font-weight: 400;
+                color: #14181E;
+            }
+        }
+
+        .menu_title {
+            height: 172px;
+            max-height: 172px;
+            overflow-y: auto;
+            width: 100%;
+            margin-top: 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .menu_inf {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                .inf_items {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-right: 10px;
+
+                    .inf_items_name {
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: #563782;
+                    }
+
+                    .inf_items_price {
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: #3A2557;
+                    }
+                }
+
+                .inf_item_count{
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: #14181E;
+                }
+            }
+        }
+
+        .menu_title::-webkit-scrollbar{
+            width: 10px;
+            background-color: pink;
+            border-radius: 20px;
+            
+        }
+
+        .menu_title::-webkit-scrollbar-thumb{
+            width: 8px;
+            background-color: #e65454;
+            border-radius: 20px;
+        }
+
+        .menu_price{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 35px;
+
+            >p:nth-child(1){
+                font-size: 32px;
+                color: black;
+                font-weight: 700;
+            }
+
+            >p:nth-child(2){
+                font-size: 32px;
+                color: #3A2557;
+                font-weight: 700;
+            }
+        }
+
+        >a{
+            >button{
+                width: 100%;
+                height: 54px;
+                background-color: #3A2557;
+                border-radius: 16px;
+                margin-top: 37px;
+                border: none;
+                color: #F5F5F5;
+                font-size: 20px;
+                font-weight: 700;
+                cursor: pointer;
+            }
+        }
+
+        .menu_text{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 37px;
+
+            .menu_text_check{
+                display: flex;
+                gap: 10px;
+
+                >input{
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 12px;
+                }
+
+                >p{
+                    width: 100%;
+                    height: 47px;
+                    font-size: 13px;
+                    font-weight: 400;
+                    color: black;
+                }
+            }
+        }
     }
 }

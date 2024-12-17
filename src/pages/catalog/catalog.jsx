@@ -9,7 +9,7 @@ import two from "/src/assets/2.png"
 import three from "/src/assets/3.png"
 import four from "/src/assets/4.png"
 import five from "/src/assets/5.png"
-import { useStore, useStoreCard } from "/src/store/store";
+import { useStoreCard } from "/src/store/store";
 
 const text = ["по популярности", "сначала дешевые", "сначала дороже"]
 
@@ -61,7 +61,6 @@ export const Catalog = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [openModule, setOpenModule] = useState(null);
     const [selectedOption, setSelectedOption] = useState('по популярности')
-    const { fill, setFill } = useStore(state => state)
     const navigate = useNavigate();
 
     const ofor = () => {
@@ -69,8 +68,8 @@ export const Catalog = () => {
     }
 
     const handleClick = () => {
-        setFill()
-    };
+        setFill(prev => prev === "none" ? "#603699" : "none")
+    }
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);

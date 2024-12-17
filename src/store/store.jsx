@@ -1,9 +1,12 @@
 import { create } from "zustand";
 
-export const useStore = create((set) => ({
-    count: 0,
-    countPlus: () => set((state) => ({ count: state.count + 1 })),
-}))
+export const useStoreCount = create(
+    set => ({
+        count: 1,
+        increment: () => set((state) => ({ count: state.count + 1})),
+        decrement: () => set((state) => ({ count: state.count - 1})),
+    })
+)
 
 export const useStoreCard = create(
     set => ({
@@ -11,5 +14,6 @@ export const useStoreCard = create(
             
         ],
         addCard: (newCard) => set((state) => ({ card: [...state.card, newCard]})),
+        deleteCard: (id) => set((state) => ({ card: state.card.filter(item => item.id !== id)})),
     }),
 );

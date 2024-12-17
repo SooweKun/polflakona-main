@@ -1,6 +1,6 @@
 import styles from "/src/pages/carzina/carzina.module.css";
 import { Link } from "@tanstack/react-router";
-import { useStore, useStoreCard } from "/src/store/store.jsx";
+import { useStoreCard } from "/src/store/store.jsx";
 import { Footer } from "/src/components/Footer/footer.jsx";
 import { Carzina1 } from "/src/pages/carzina/carzina1/carzina1.jsx";
 import { Carzina2 } from "/src/pages/carzina/carzina2/carzina2.jsx";
