@@ -17,6 +17,7 @@ import { Route as LayoutmainSoglIndexImport } from './routes/_layoutmain/sogl/in
 import { Route as LayoutmainRegIndexImport } from './routes/_layoutmain/reg/index'
 import { Route as LayoutmainProfileIndexImport } from './routes/_layoutmain/profile/index'
 import { Route as LayoutmainPayIndexImport } from './routes/_layoutmain/pay/index'
+import { Route as LayoutmainOformlenieIndexImport } from './routes/_layoutmain/oformlenie/index'
 import { Route as LayoutmainOfertaIndexImport } from './routes/_layoutmain/oferta/index'
 import { Route as LayoutmainDostavkaIndexImport } from './routes/_layoutmain/dostavka/index'
 import { Route as LayoutmainContactsIndexImport } from './routes/_layoutmain/contacts/index'
@@ -62,6 +63,12 @@ const LayoutmainProfileIndexRoute = LayoutmainProfileIndexImport.update({
 const LayoutmainPayIndexRoute = LayoutmainPayIndexImport.update({
   id: '/pay/',
   path: '/pay/',
+  getParentRoute: () => LayoutmainRoute,
+} as any)
+
+const LayoutmainOformlenieIndexRoute = LayoutmainOformlenieIndexImport.update({
+  id: '/oformlenie/',
+  path: '/oformlenie/',
   getParentRoute: () => LayoutmainRoute,
 } as any)
 
@@ -215,6 +222,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutmainOfertaIndexImport
       parentRoute: typeof LayoutmainImport
     }
+    '/_layoutmain/oformlenie/': {
+      id: '/_layoutmain/oformlenie/'
+      path: '/oformlenie'
+      fullPath: '/oformlenie'
+      preLoaderRoute: typeof LayoutmainOformlenieIndexImport
+      parentRoute: typeof LayoutmainImport
+    }
     '/_layoutmain/pay/': {
       id: '/_layoutmain/pay/'
       path: '/pay'
@@ -259,6 +273,7 @@ interface LayoutmainRouteChildren {
   LayoutmainContactsIndexRoute: typeof LayoutmainContactsIndexRoute
   LayoutmainDostavkaIndexRoute: typeof LayoutmainDostavkaIndexRoute
   LayoutmainOfertaIndexRoute: typeof LayoutmainOfertaIndexRoute
+  LayoutmainOformlenieIndexRoute: typeof LayoutmainOformlenieIndexRoute
   LayoutmainPayIndexRoute: typeof LayoutmainPayIndexRoute
   LayoutmainProfileIndexRoute: typeof LayoutmainProfileIndexRoute
   LayoutmainRegIndexRoute: typeof LayoutmainRegIndexRoute
@@ -276,6 +291,7 @@ const LayoutmainRouteChildren: LayoutmainRouteChildren = {
   LayoutmainContactsIndexRoute: LayoutmainContactsIndexRoute,
   LayoutmainDostavkaIndexRoute: LayoutmainDostavkaIndexRoute,
   LayoutmainOfertaIndexRoute: LayoutmainOfertaIndexRoute,
+  LayoutmainOformlenieIndexRoute: LayoutmainOformlenieIndexRoute,
   LayoutmainPayIndexRoute: LayoutmainPayIndexRoute,
   LayoutmainProfileIndexRoute: LayoutmainProfileIndexRoute,
   LayoutmainRegIndexRoute: LayoutmainRegIndexRoute,
@@ -299,6 +315,7 @@ export interface FileRoutesByFullPath {
   '/contacts': typeof LayoutmainContactsIndexRoute
   '/dostavka': typeof LayoutmainDostavkaIndexRoute
   '/oferta': typeof LayoutmainOfertaIndexRoute
+  '/oformlenie': typeof LayoutmainOformlenieIndexRoute
   '/pay': typeof LayoutmainPayIndexRoute
   '/profile': typeof LayoutmainProfileIndexRoute
   '/reg': typeof LayoutmainRegIndexRoute
@@ -318,6 +335,7 @@ export interface FileRoutesByTo {
   '/contacts': typeof LayoutmainContactsIndexRoute
   '/dostavka': typeof LayoutmainDostavkaIndexRoute
   '/oferta': typeof LayoutmainOfertaIndexRoute
+  '/oformlenie': typeof LayoutmainOformlenieIndexRoute
   '/pay': typeof LayoutmainPayIndexRoute
   '/profile': typeof LayoutmainProfileIndexRoute
   '/reg': typeof LayoutmainRegIndexRoute
@@ -338,6 +356,7 @@ export interface FileRoutesById {
   '/_layoutmain/contacts/': typeof LayoutmainContactsIndexRoute
   '/_layoutmain/dostavka/': typeof LayoutmainDostavkaIndexRoute
   '/_layoutmain/oferta/': typeof LayoutmainOfertaIndexRoute
+  '/_layoutmain/oformlenie/': typeof LayoutmainOformlenieIndexRoute
   '/_layoutmain/pay/': typeof LayoutmainPayIndexRoute
   '/_layoutmain/profile/': typeof LayoutmainProfileIndexRoute
   '/_layoutmain/reg/': typeof LayoutmainRegIndexRoute
@@ -359,6 +378,7 @@ export interface FileRouteTypes {
     | '/contacts'
     | '/dostavka'
     | '/oferta'
+    | '/oformlenie'
     | '/pay'
     | '/profile'
     | '/reg'
@@ -377,6 +397,7 @@ export interface FileRouteTypes {
     | '/contacts'
     | '/dostavka'
     | '/oferta'
+    | '/oformlenie'
     | '/pay'
     | '/profile'
     | '/reg'
@@ -395,6 +416,7 @@ export interface FileRouteTypes {
     | '/_layoutmain/contacts/'
     | '/_layoutmain/dostavka/'
     | '/_layoutmain/oferta/'
+    | '/_layoutmain/oformlenie/'
     | '/_layoutmain/pay/'
     | '/_layoutmain/profile/'
     | '/_layoutmain/reg/'
@@ -442,6 +464,7 @@ export const routeTree = rootRoute
         "/_layoutmain/contacts/",
         "/_layoutmain/dostavka/",
         "/_layoutmain/oferta/",
+        "/_layoutmain/oformlenie/",
         "/_layoutmain/pay/",
         "/_layoutmain/profile/",
         "/_layoutmain/reg/",
@@ -486,6 +509,10 @@ export const routeTree = rootRoute
     },
     "/_layoutmain/oferta/": {
       "filePath": "_layoutmain/oferta/index.jsx",
+      "parent": "/_layoutmain"
+    },
+    "/_layoutmain/oformlenie/": {
+      "filePath": "_layoutmain/oformlenie/index.jsx",
       "parent": "/_layoutmain"
     },
     "/_layoutmain/pay/": {

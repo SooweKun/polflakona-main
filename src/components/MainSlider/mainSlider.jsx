@@ -5,6 +5,7 @@ import { Heart } from "/src/components/MainSlider/heart/heart.jsx";
 import styles from "/src/components/MainSlider/mainSlider.module.css"
 import { useStore, useStoreCard } from "/src/store/store";
 import { useState } from "react";
+import { useNavigate } from '@tanstack/react-router';
 import one from "/src/assets/1.png"
 import two from "/src/assets/2.png"
 import three from "/src/assets/3.png"
@@ -17,7 +18,7 @@ const info = {
     data: [
         {
             id: 1,
-            price: "7 889 ₽ ",
+            price: 7889,
             img: one,
             title: "Akro /",
             name: "Bake"
@@ -25,7 +26,7 @@ const info = {
 
         {
             id: 2,
-            price: "5 889 ₽ ",
+            price: 5889,
             img: two,
             title: "KARL LAGERFELD /",
             name: "Shibuya"
@@ -33,7 +34,7 @@ const info = {
 
         {
             id: 3,
-            price: "7 199 ₽ ",
+            price: 7199,
             img: three,
             title: "ROBERTO CAVALLI /",
             name: "Just Cavalli"
@@ -41,7 +42,7 @@ const info = {
 
         {
             id: 4,
-            price: "6 689 ₽ ",
+            price: 6689,
             img: four,
             title: "JIMMY CHOO /",
             name: "Urban Hero"
@@ -49,7 +50,7 @@ const info = {
 
         {
             id: 5,
-            price: "8 869 ₽ ",
+            price: 8869,
             img: five,
             title: "DOLCE&GABBANA /",
             name: "L'peratrice"
@@ -60,8 +61,12 @@ const info = {
 
 
 export const MainSlider = () => {
-    const card = useStoreCard(state => state.card)
-    console.log(card);
+    const navigate = useNavigate();
+
+    const ofor = () => {
+        navigate({to: '/oformlenie'})
+    }
+
     return (
         <div className={styles.MainSlider}>
             <div className={styles.MainSlider__inner}>
@@ -70,8 +75,8 @@ export const MainSlider = () => {
                     <img src={backImg} alt="" className={styles.back} />
                     {info.data.map(({ id, price, img, title, name }) => {
                         const addCard = useStoreCard(state => state.addCard)
-                        const countPlus = useStore(state => state.countPlus)
                         const [fill, setFill] = useState("none");
+                        const card = useStoreCard(state => state.card)
                         const handleClick = () => {
                             setFill(prev => prev === "none" ? "#603699" : "none")
                         }
@@ -81,7 +86,6 @@ export const MainSlider = () => {
                                     <Heart
                                         fill={fill}
                                         handleClick={handleClick}
-                                        onClick={countPlus}
                                         className={styles.MainSlider__card_favorite}
                                     />
                                     <img src={img} alt="" className={styles.MainSlider__card_flacon} />
@@ -92,8 +96,8 @@ export const MainSlider = () => {
                                     <p className={styles.MainSlider__card_text_p}>Есть в наличие</p>
                                 </div>
                                 <div className={styles.MainSlider__card_btn}>
-                                    <button className={styles.MainSlider__card_btn_carzina} onClick={() => addCard([ {id, price, img, title, name} ])}>В корзину</button>
-                                    <button className={styles.MainSlider__card_btn_click}>Купить в 1 клик</button>
+                                    <button className={styles.MainSlider__card_btn_carzina} onClick={() => addCard({ id, price, img, title, name })}>В корзину</button>
+                                    <button className={styles.MainSlider__card_btn_click} onClick={ofor}>Купить в 1 клик</button>
                                 </div>
                             </div>
                         )

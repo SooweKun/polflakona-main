@@ -1,5 +1,5 @@
 import styles from "/src/pages/catalog/catalog.module.css"
-import { Link } from '@tanstack/react-router'
+import { Link, useNavigate } from '@tanstack/react-router'
 import { Heart } from "/src/components/MainSlider/heart/heart.jsx";
 import ArrowDown from "/src/assets/arrowDown.svg"
 import { useState } from "react"
@@ -17,7 +17,7 @@ const info = {
     data: [
         {
             id: 1,
-            price: "7 889 ₽ ",
+            price: 7889,
             img: one,
             title: "Akro /",
             name: "Bake"
@@ -25,7 +25,7 @@ const info = {
 
         {
             id: 2,
-            price: "5 889 ₽ ",
+            price: 5889,
             img: two,
             title: "KARL LAGERFELD /",
             name: "Shibuya"
@@ -33,7 +33,7 @@ const info = {
 
         {
             id: 3,
-            price: "7 199 ₽ ",
+            price: 7199,
             img: three,
             title: "ROBERTO CAVALLI /",
             name: "Just Cavalli"
@@ -41,7 +41,7 @@ const info = {
 
         {
             id: 4,
-            price: "6 689 ₽ ",
+            price: 6689,
             img: four,
             title: "JIMMY CHOO /",
             name: "Urban Hero"
@@ -49,7 +49,7 @@ const info = {
 
         {
             id: 5,
-            price: "8 869 ₽ ",
+            price: 8869,
             img: five,
             title: "DOLCE&GABBANA /",
             name: "L'peratrice"
@@ -61,11 +61,15 @@ export const Catalog = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [openModule, setOpenModule] = useState(null);
     const [selectedOption, setSelectedOption] = useState('по популярности')
-    const {fill, setFill} = useStore(state => state)
+    const { fill, setFill } = useStore(state => state)
+    const navigate = useNavigate();
+
+    const ofor = () => {
+        navigate({to: '/oformlenie'})
+    }
 
     const handleClick = () => {
         setFill()
-        countPlus()
     };
 
     const toggleDropdown = () => {
@@ -79,7 +83,7 @@ export const Catalog = () => {
     const handleOptionClick = (option) => {
         setSelectedOption(option);
         setIsOpen(false);
-      };
+    };
 
     return (
         <div className={styles.Catalog}>
@@ -91,12 +95,12 @@ export const Catalog = () => {
                 <h1>НАШ КАТАЛОГ</h1>
                 <div className={styles.Catalog__inner_content}>
                     <div className={styles.content__filter}>
-                        <div className={styles.content__filter_module} style={{height: isOpen ? '139px' : '40px'}}>
+                        <div className={styles.content__filter_module} style={{ height: isOpen ? '139px' : '40px' }}>
                             <button onClick={toggleDropdown}>
                                 {selectedOption}
                                 <img src={isOpen ? ArrowUp : ArrowDown} alt="" />
                             </button>
-                            <div className={styles.content__filter_module_list} style={{display: isOpen ? 'flex' : 'none'}}>
+                            <div className={styles.content__filter_module_list} style={{ display: isOpen ? 'flex' : 'none' }}>
                                 {text.map((option, index) => (
                                     <p onClick={() => handleOptionClick(option)} key={index}>{option}</p>
                                 ))}
@@ -140,15 +144,15 @@ export const Catalog = () => {
                                     Унисекс парфюмерия
                                     <img src={isOpen ? ArrowUp : ArrowDown} alt="" />
                                 </button>
-                               {
-                                   openModule === "universal" && (
-                                       <div className={styles.module_text}>
-                                           <button>Духи</button>
-                                           <button>Парфюмерная вода</button>
-                                           <button>Туалетная вода</button>
-                                       </div>
-                                   )
-                               }
+                                {
+                                    openModule === "universal" && (
+                                        <div className={styles.module_text}>
+                                            <button>Духи</button>
+                                            <button>Парфюмерная вода</button>
+                                            <button>Туалетная вода</button>
+                                        </div>
+                                    )
+                                }
                             </div>
                             <div className={styles.navbar__module}>
                                 <button onClick={() => openModules("nusha")} className={styles.navbar__module_btn}>
@@ -167,34 +171,32 @@ export const Catalog = () => {
                             </div>
                         </div>
                         <div className={styles.info_catalog}>
-                            {info.data.map(({id, price, img, title, name}) =>{
+                            {info.data.map(({ id, price, img, title, name }) => {
                                 const addCard = useStoreCard(state => state.addCard)
-                                const countPlus = useStore(state => state.countPlus)
                                 const [fill, setFill] = useState("none");
                                 const handleClick = () => {
                                     setFill(prev => prev === "none" ? "#603699" : "none")
                                 }
-                                return(
+                                return (
                                     <div className={styles.MainSlider__card} key={id}>
-                                <div className={styles.MainSlider__card_imgs}>
-                                    <Heart
-                                        fill={fill}
-                                        handleClick={handleClick}
-                                        onClick={countPlus}
-                                        className={styles.MainSlider__card_favorite}
-                                    />
-                                    <img src={img} alt="" className={styles.MainSlider__card_flacon}/>
-                                </div>
-                                <div className={styles.MainSlider__card_text}>
-                                    <h1 className={styles.MainSlider__card_text_price}>{price}</h1>
-                                    <p className={styles.MainSlider__card_text_title}>{title}<span>{name}</span></p>
-                                    <p className={styles.MainSlider__card_text_p}>Есть в наличие</p>
-                                </div>
-                                <div className={styles.MainSlider__card_btn}>
-                                    <button className={styles.MainSlider__card_btn_carzina} onClick={() => addCard([ {id, price, img, title, name} ])}>В корзину</button>
-                                    <button className={styles.MainSlider__card_btn_click}>Купить в 1 клик</button>
-                                </div>
-                            </div>
+                                        <div className={styles.MainSlider__card_imgs}>
+                                            <Heart
+                                                fill={fill}
+                                                handleClick={handleClick}
+                                                className={styles.MainSlider__card_favorite}
+                                            />
+                                            <img src={img} alt="" className={styles.MainSlider__card_flacon} />
+                                        </div>
+                                        <div className={styles.MainSlider__card_text}>
+                                            <h1 className={styles.MainSlider__card_text_price}>{price}</h1>
+                                            <p className={styles.MainSlider__card_text_title}>{title}<span>{name}</span></p>
+                                            <p className={styles.MainSlider__card_text_p}>Есть в наличие</p>
+                                        </div>
+                                        <div className={styles.MainSlider__card_btn}>
+                                            <button className={styles.MainSlider__card_btn_carzina} onClick={() => addCard({ id, price, img, title, name })}>В корзину</button>
+                                            <button className={styles.MainSlider__card_btn_click} onClick={ofor}>Купить в 1 клик</button>
+                                        </div>
+                                    </div>
                                 )
                             })}
                         </div>
