@@ -61,7 +61,7 @@ export const Carzina2 = () => {
                 <Link to="/oformlenie"><button>к оформлению</button></Link>
                 <div className={styles.menu_text}>
                     <div className={styles.menu_text_check}>
-                        <input type="checkbox" checked/>
+                        <input type="checkbox" readOnly/>
                         <p>я даю согласие на обработку персональных данных в соответствии с Политикой обработки персональных данных</p>
                     </div>
                     <div className={styles.menu_text_check}>
