@@ -26,6 +26,7 @@ import { Route as LayoutmainCatalogIndexImport } from './routes/_layoutmain/cata
 import { Route as LayoutmainCarzinaIndexImport } from './routes/_layoutmain/carzina/index'
 import { Route as LayoutmainBrendsIndexImport } from './routes/_layoutmain/brends/index'
 import { Route as LayoutmainAuthIndexImport } from './routes/_layoutmain/auth/index'
+import { Route as LayoutmainAdminIndexImport } from './routes/_layoutmain/admin/index'
 import { Route as LayoutmainAboutUsIndexImport } from './routes/_layoutmain/aboutUs/index'
 import { Route as LayoutmainCardinfoCardInfoImport } from './routes/_layoutmain/cardinfo/cardInfo'
 
@@ -120,6 +121,12 @@ const LayoutmainAuthIndexRoute = LayoutmainAuthIndexImport.update({
   getParentRoute: () => LayoutmainRoute,
 } as any)
 
+const LayoutmainAdminIndexRoute = LayoutmainAdminIndexImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => LayoutmainRoute,
+} as any)
+
 const LayoutmainAboutUsIndexRoute = LayoutmainAboutUsIndexImport.update({
   id: '/aboutUs/',
   path: '/aboutUs/',
@@ -164,6 +171,13 @@ declare module '@tanstack/react-router' {
       path: '/aboutUs'
       fullPath: '/aboutUs'
       preLoaderRoute: typeof LayoutmainAboutUsIndexImport
+      parentRoute: typeof LayoutmainImport
+    }
+    '/_layoutmain/admin/': {
+      id: '/_layoutmain/admin/'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof LayoutmainAdminIndexImport
       parentRoute: typeof LayoutmainImport
     }
     '/_layoutmain/auth/': {
@@ -265,6 +279,7 @@ declare module '@tanstack/react-router' {
 interface LayoutmainRouteChildren {
   LayoutmainCardinfoCardInfoRoute: typeof LayoutmainCardinfoCardInfoRoute
   LayoutmainAboutUsIndexRoute: typeof LayoutmainAboutUsIndexRoute
+  LayoutmainAdminIndexRoute: typeof LayoutmainAdminIndexRoute
   LayoutmainAuthIndexRoute: typeof LayoutmainAuthIndexRoute
   LayoutmainBrendsIndexRoute: typeof LayoutmainBrendsIndexRoute
   LayoutmainCarzinaIndexRoute: typeof LayoutmainCarzinaIndexRoute
@@ -283,6 +298,7 @@ interface LayoutmainRouteChildren {
 const LayoutmainRouteChildren: LayoutmainRouteChildren = {
   LayoutmainCardinfoCardInfoRoute: LayoutmainCardinfoCardInfoRoute,
   LayoutmainAboutUsIndexRoute: LayoutmainAboutUsIndexRoute,
+  LayoutmainAdminIndexRoute: LayoutmainAdminIndexRoute,
   LayoutmainAuthIndexRoute: LayoutmainAuthIndexRoute,
   LayoutmainBrendsIndexRoute: LayoutmainBrendsIndexRoute,
   LayoutmainCarzinaIndexRoute: LayoutmainCarzinaIndexRoute,
@@ -307,6 +323,7 @@ export interface FileRoutesByFullPath {
   '': typeof LayoutmainRouteWithChildren
   '/cardinfo/cardInfo': typeof LayoutmainCardinfoCardInfoRoute
   '/aboutUs': typeof LayoutmainAboutUsIndexRoute
+  '/admin': typeof LayoutmainAdminIndexRoute
   '/auth': typeof LayoutmainAuthIndexRoute
   '/brends': typeof LayoutmainBrendsIndexRoute
   '/carzina': typeof LayoutmainCarzinaIndexRoute
@@ -327,6 +344,7 @@ export interface FileRoutesByTo {
   '': typeof LayoutmainRouteWithChildren
   '/cardinfo/cardInfo': typeof LayoutmainCardinfoCardInfoRoute
   '/aboutUs': typeof LayoutmainAboutUsIndexRoute
+  '/admin': typeof LayoutmainAdminIndexRoute
   '/auth': typeof LayoutmainAuthIndexRoute
   '/brends': typeof LayoutmainBrendsIndexRoute
   '/carzina': typeof LayoutmainCarzinaIndexRoute
@@ -348,6 +366,7 @@ export interface FileRoutesById {
   '/_layoutmain': typeof LayoutmainRouteWithChildren
   '/_layoutmain/cardinfo/cardInfo': typeof LayoutmainCardinfoCardInfoRoute
   '/_layoutmain/aboutUs/': typeof LayoutmainAboutUsIndexRoute
+  '/_layoutmain/admin/': typeof LayoutmainAdminIndexRoute
   '/_layoutmain/auth/': typeof LayoutmainAuthIndexRoute
   '/_layoutmain/brends/': typeof LayoutmainBrendsIndexRoute
   '/_layoutmain/carzina/': typeof LayoutmainCarzinaIndexRoute
@@ -370,6 +389,7 @@ export interface FileRouteTypes {
     | ''
     | '/cardinfo/cardInfo'
     | '/aboutUs'
+    | '/admin'
     | '/auth'
     | '/brends'
     | '/carzina'
@@ -389,6 +409,7 @@ export interface FileRouteTypes {
     | ''
     | '/cardinfo/cardInfo'
     | '/aboutUs'
+    | '/admin'
     | '/auth'
     | '/brends'
     | '/carzina'
@@ -408,6 +429,7 @@ export interface FileRouteTypes {
     | '/_layoutmain'
     | '/_layoutmain/cardinfo/cardInfo'
     | '/_layoutmain/aboutUs/'
+    | '/_layoutmain/admin/'
     | '/_layoutmain/auth/'
     | '/_layoutmain/brends/'
     | '/_layoutmain/carzina/'
@@ -456,6 +478,7 @@ export const routeTree = rootRoute
       "children": [
         "/_layoutmain/cardinfo/cardInfo",
         "/_layoutmain/aboutUs/",
+        "/_layoutmain/admin/",
         "/_layoutmain/auth/",
         "/_layoutmain/brends/",
         "/_layoutmain/carzina/",
@@ -477,6 +500,10 @@ export const routeTree = rootRoute
     },
     "/_layoutmain/aboutUs/": {
       "filePath": "_layoutmain/aboutUs/index.jsx",
+      "parent": "/_layoutmain"
+    },
+    "/_layoutmain/admin/": {
+      "filePath": "_layoutmain/admin/index.jsx",
       "parent": "/_layoutmain"
     },
     "/_layoutmain/auth/": {

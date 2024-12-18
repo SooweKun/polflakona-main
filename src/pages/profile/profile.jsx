@@ -4,15 +4,21 @@ import profile from '/src/assets/pr-bg.png'
 import { useState } from 'react';
 import { set, useForm } from 'react-hook-form';
 import axios from 'axios';
+import { useNavigate } from '@tanstack/react-router';
 
 export const Profile = () => {
     const [value, setValue] = useState(true);
     const [isDisabled, setIsDisabled] = useState(true);
+    const navigate = useNavigate();
     const {register, handleSubmit, formState: {errors, isSubmitSuccessful}, reset} = useForm();
 
     const handleClick = () => {
         setValue(!value);
         setIsDisabled(false);
+    }
+
+    const adminClick = () => {
+        navigate({to: '/admin'});
     }
 
     const handleClick2 = () => {
@@ -50,6 +56,7 @@ export const Profile = () => {
                             <p><span>Телефон</span>+7 (948) 044-49-49</p>
                             <p><span>Город/Населенный пункт</span>Оренбург</p>
                         </div>
+                        <button onClick={adminClick}>админка</button>
                     </div>
                     <div className={styles.content_inputs}>
                         <h1>Личные данные</h1>

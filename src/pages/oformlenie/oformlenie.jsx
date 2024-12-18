@@ -105,8 +105,38 @@ export const Oformlenie = () => {
                         <form className={styles.three}>
                             <h1>3</h1>
                             <div className={styles.three_inner}>
-                                <div className={styles.input}>
-                                    
+                                <h1>Адрес и способ доставки</h1>
+                                <div className={styles.three_inner_content}>
+                                    <div className={styles.input}>
+                                        <p>Введите город</p>
+                                        <input type="text" placeholder='Город'
+                                            {...register("City", { required: true })}
+                                            style={{
+                                                borderColor: errors.City ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
+                                            }}
+                                        />
+                                        <p className={styles.p2}>{errors.City?.type === 'required' && 'Заполните поле' || "Поле для заполнения"}</p>
+                                    </div>
+                                    <div className={styles.input}>
+                                        <p>Введите населенный пункт</p>
+                                        <input type="text" placeholder='Населенный пункт'
+                                            {...register("punkt", { required: true })}
+                                            style={{
+                                                borderColor: errors.punkt ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
+                                            }}
+                                        />
+                                        <p className={styles.p2}>{errors.punkr?.type === 'required' && 'Заполните поле' || "Поле для заполнения"}</p>
+                                    </div>
+                                    <div className={styles.input}>
+                                        <p>Введите улицу и номер дома</p>
+                                        <input type="text" placeholder='Улица и номер дома'
+                                            {...register("home", { required: true })}
+                                            style={{
+                                                borderColor: errors.home ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
+                                            }}
+                                        />
+                                        <p className={styles.p2}>{errors.home?.type === 'required' && 'Заполните поле' || "Поле для заполнения"}</p>
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -120,8 +150,8 @@ export const Oformlenie = () => {
                                 return (
                                     <div className={styles.menu_inf} key={id}>
                                         <div className={styles.inf_items}>
-                                            <p key={id} className={styles.inf_items_name}>{title}</p>
-                                            <p key={id} className={styles.inf_items_price}> {price} ₽</p>
+                                            <p className={styles.inf_items_name}>{title}</p>
+                                            <p className={styles.inf_items_price}> {price} ₽</p>
                                         </div>
                                         <p className={styles.inf_item_count}>1 шт</p>
                                     </div>

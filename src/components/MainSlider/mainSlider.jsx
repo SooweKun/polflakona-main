@@ -62,23 +62,37 @@ const info = {
 
 export const MainSlider = () => {
     const navigate = useNavigate();
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const itemsPerPage = 4;
 
-    const ofor = () => {
-        navigate({to: '/oformlenie'})
-    }
+    const handleNext = () => {
+        if (currentIndex + itemsPerPage < info.data.length) {
+            setCurrentIndex(prevIndex => prevIndex + 1);
+        }
+    };
+
+    const handlePrev = () => {
+        if (currentIndex > 0) {
+            setCurrentIndex(prevIndex => prevIndex - 1);
+        }
+    };  
 
     return (
         <div className={styles.MainSlider}>
             <div className={styles.MainSlider__inner}>
                 <h1 className={styles.MainSlider__inner_h1}>ХИТЫ ПРОДАЖ </h1>
                 <div className={styles.MainSlider__cards}>
-                    <img src={backImg} alt="" className={styles.back} />
-                    {info.data.map(({ id, price, img, title, name }) => {
+                    <img src={backImg} alt="" className={styles.back} onClick={handlePrev} disabled={currentIndex === 0}/>
+                    {info.data.slice(currentIndex, currentIndex + itemsPerPage).map(({ id, price, img, title, name }) => {
                         const addCard = useStoreCard(state => state.addCard)
                         const [fill, setFill] = useState("none");
                         const card = useStoreCard(state => state.card)
                         const handleClick = () => {
                             setFill(prev => prev === "none" ? "#603699" : "none")
+                        }
+                        const ofor = () => {
+                            navigate({to: '/oformlenie'})
+                            addCard({ id, price, title})
                         }
                         return (
                             <div className={styles.MainSlider__card} key={id}>
@@ -103,7 +117,7 @@ export const MainSlider = () => {
                         )
                     })
                     }
-                    <img src={nextImg} alt="" className={styles.next} />
+                    <img src={nextImg} alt="" className={styles.next} onClick={handleNext} disabled={currentIndex + itemsPerPage >= info.data.length}/>
                 </div>
             </div>
         </div>

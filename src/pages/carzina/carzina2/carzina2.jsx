@@ -7,14 +7,16 @@ export const Carzina2 = () => {
     const card = useStoreCard(state => state.card)
     const deleteCard = useStoreCard(state => state.deleteCard)
     console.log(card);
-    const sum = card.reduce((index, value) => index + value.price, 0);
+    const sum = card.reduce((index, card) => index  + (card.price * card.count) , 0);
     return (
         <div className={styles.Carzina2}>
             <div className={styles.Carzina2__cards}>
-                {card.map(({ id, price, img, title, name }) => {
+                {card.map(({ id, price, img, title, name, count }) => {
                     // const increment = useStoreCount(state => state.increment)
                     // const decrement = useStoreCount(state => state.decrement)
                     // const count = useStoreCount(state => state.count)
+                    const countPlus = useStoreCard(state => state.countPlus)
+                    const countMinus = useStoreCard(state => state.countMinus)
                     return (
                         <div className={styles.card} key={id}>
                             <img src={img} alt="" />
@@ -25,9 +27,9 @@ export const Carzina2 = () => {
                                     <div className={styles.card__text_btn_left}>
                                         <img src={delite} alt="" onClick={() => deleteCard(id)} />
                                         <div className={styles.counter}>
-                                            <button className={styles.left}>-</button>
-                                            <p className={styles.count}>1</p>
-                                            <button className={styles.right}>+</button>
+                                            <button className={styles.left} onClick={() => countMinus(id)}>-</button>
+                                            <p className={styles.count}>{count}</p>
+                                            <button className={styles.right} onClick={() => countPlus(id)}>+</button>
                                         </div>
                                     </div>
                                     <p className={styles.price}>{price.toLocaleString('en-US')} ₽</p>
@@ -42,14 +44,14 @@ export const Carzina2 = () => {
                     <p>{card.length} шт</p>
                 </div>
                 <div className={styles.menu_title}>
-                    {card.map(({ title, price, id }) => {
+                    {card.map(({ title, price, id, count }) => {
                         return (
                             <div className={styles.menu_inf} key={id}>
                                 <div className={styles.inf_items}>
-                                    <p key={id} className={styles.inf_items_name}>{title}</p>
-                                    <p key={id} className={styles.inf_items_price}> {price.toLocaleString('en-US')} ₽</p>
+                                    <p className={styles.inf_items_name}>{title}</p>
+                                    <p className={styles.inf_items_price}> {sum.toLocaleString('en-US')} ₽</p>
                                 </div>
-                                <p className={styles.inf_item_count}>1 шт</p>
+                                <p className={styles.inf_item_count}>{count}</p>
                             </div>
                         )
                     })}
