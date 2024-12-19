@@ -9,11 +9,8 @@ export const Auth = () => {
     const {register, handleSubmit, formState: {errors, isSubmitSuccessful}} = useForm();
     const navigate = useNavigate();
 
-    const getData = (data) => {
-        console.log(data);
-        setTimeout(() => {
-            navigate({to: '/profile'});
-        }, 1000);
+    const postData = () => {
+        axios.post("/login")
     }
 
     return (
@@ -27,7 +24,7 @@ export const Auth = () => {
                 <div className={styles.Auth__inner_content}>
                     <div className={styles.Auth__inner_content}>
                         <div className={styles.content__form}>
-                            <form onSubmit={handleSubmit(getData)}>
+                            <form onSubmit={handleSubmit(postData)}>
                                 <h1>Регистрация</h1>
                                 <div className={styles.content__form_inputs}>
                                     <p>E-mail</p>

@@ -3,13 +3,27 @@ import { Link } from "@tanstack/react-router";
 import { useForm } from 'react-hook-form';
 import { Footer } from "/src/components/Footer/footer.jsx";
 import regFoto from "/src/assets/regFoto.png"
+import axios from "axios";
 
 export const Reg = () => {
-    const {register, handleSubmit, formState: {errors, isSubmitSuccessful}} = useForm();
+    const { register, handleSubmit, formState: { errors, isSubmitSuccessful } } = useForm();
 
-    const getData = (data) => {
-        console.log(data);
+    const api_url = "http://127.0.0.1:3000"
+
+    const postData = async (data) => {
+        try {
+            const res = await axios({
+                method: "POST",
+                url: `${api_url}/v1/singup`,
+                data: data,
+            });
+            console.log(res.data, "data");
+        } catch (error) {
+            console.log(error);
+        }
     }
+
+
 
     return (
         <div className={styles.Reg}>
@@ -27,60 +41,60 @@ export const Reg = () => {
                                 <p>Имя</p>
                                 <div className={styles.content__form_input}>
                                     <input type="text" placeholder="Введите имя"
-                                        {...register("Name", {required: true})}  
+                                        {...register("name", { required: true })}
                                         style={{
-                                            borderColor: errors.Name ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
-                                          }}
+                                            borderColor: errors.name ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
+                                        }}
                                     />
-                                    {errors?.Name?.type === 'required' && <p className={styles.error}>Заполните поле</p>}
+                                    {errors?.name?.type === 'required' && <p className={styles.error}>Заполните поле</p>}
                                 </div>
                                 <div className={styles.content__form_input}>
                                     <p>Телефон</p>
                                     <input type="text" placeholder="Введите телефон"
-                                        {...register("Phone", {required: true})}
+                                        {...register("number", { required: true })}
                                         style={{
-                                            borderColor: errors.Phone ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
-                                          }}
+                                            borderColor: errors.number ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
+                                        }}
                                     />
-                                    {errors?.Phone?.type === 'required' && <p className={styles.error}>Заполните поле</p>}
+                                    {errors?.number?.type === 'required' && <p className={styles.error}>Заполните поле</p>}
                                 </div>
                                 <div className={styles.content__form_input}>
                                     <p>E-mail</p>
                                     <input type="text" placeholder="Введите e-mail"
-                                        {...register("Email", {required: true, pattern:/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i})}
+                                        {...register("login", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })}
                                         style={{
-                                            borderColor: errors.Email ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
-                                          }}
+                                            borderColor: errors.login ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
+                                        }}
                                     />
-                                    {errors?.Email?.type === 'required' && <p className={styles.error}>Заполните поле</p>}
-                                    {errors?.Email?.type === "pattern" && <p className={styles.error}>Некорректно введен e-mail</p>}
+                                    {errors?.login?.type === 'required' && <p className={styles.error}>Заполните поле</p>}
+                                    {errors?.login?.type === "pattern" && <p className={styles.error}>Некорректно введен e-mail</p>}
                                 </div>
                                 <div className={styles.content__form_input}>
                                     <p>Пароль</p>
                                     <input type="text" placeholder="Придумайте пароль"
-                                        {...register("Password", {required: true})}
+                                        {...register("password", { required: true })}
                                         style={{
-                                            borderColor: errors.Password ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
-                                          }}
+                                            borderColor: errors.password ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
+                                        }}
                                     />
-                                    {errors?.Password?.type === 'required' && <p className={styles.error}>Заполните поле</p>}
+                                    {errors?.password?.type === 'required' && <p className={styles.error}>Заполните поле</p>}
                                 </div>
                                 <div className={styles.content__form_input}>
                                     <p>Подтвердитте пароль</p>
                                     <input type="text" placeholder="Подтвердите пароль"
-                                        {...register("Password", {required: true})}
+                                        {...register("repeatpassword", { required: true })}
                                         style={{
-                                            borderColor: errors.Password ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
-                                          }}
+                                            borderColor: errors.repeatpassword ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
+                                        }}
                                     />
-                                    {errors?.Password?.type === 'required' && <p className={styles.error}>Заполните поле</p>}
+                                    {errors?.repeatpassword?.type === 'required' && <p className={styles.error}>Заполните поле</p>}
                                 </div>
                                 <div className={styles.content_form_radioButton}>
-                                <input type="checkbox"/>
-                                <p>Согласие на обработку персональных данных</p>
+                                    <input type="checkbox" />
+                                    <p>Согласие на обработку персональных данных</p>
                                 </div>
                             </div>
-                            <button onClick={handleSubmit(getData)}>ЗАРЕГИСТРИРОВАТЬСЯ</button>
+                            <button onClick={handleSubmit(postData)}>ЗАРЕГИСТРИРОВАТЬСЯ</button>
                         </form>
                     </div>
                     <div className={styles.content_title}>

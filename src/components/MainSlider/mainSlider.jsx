@@ -13,6 +13,7 @@ import four from "/src/assets/4.png"
 import five from "/src/assets/5.png"
 import nextImg from "/src/assets/right.svg"
 import backImg from "/src/assets/left.svg"
+import axios from "axios";
 
 const info = {
     data: [
@@ -64,6 +65,10 @@ export const MainSlider = () => {
     const navigate = useNavigate();
     const [currentIndex, setCurrentIndex] = useState(0);
     const itemsPerPage = 4;
+
+    const ofor = () => {
+        axios.get("")
+    }
 
     const handleNext = () => {
         if (currentIndex + itemsPerPage < info.data.length) {
