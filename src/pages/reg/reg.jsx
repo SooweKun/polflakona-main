@@ -23,8 +23,6 @@ export const Reg = () => {
         }
     }
 
-
-
     return (
         <div className={styles.Reg}>
             <div className={styles.Reg__inner}>

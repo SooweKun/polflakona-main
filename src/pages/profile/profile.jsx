@@ -2,15 +2,30 @@ import styles from '/src/pages/profile/profile.module.css'
 import { Link } from '@tanstack/react-router';
 import profile from '/src/assets/pr-bg.png'
 import { useState } from 'react';
-import { set, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useNavigate } from '@tanstack/react-router';
+import { useUserStore } from '/src/store/useUserStore.js';
+
 
 export const Profile = () => {
     const [value, setValue] = useState(true);
     const [isDisabled, setIsDisabled] = useState(true);
     const navigate = useNavigate();
-    const {register, handleSubmit, formState: {errors, isSubmitSuccessful}, reset} = useForm();
+    const { register, handleSubmit, formState: { errors, isSubmitSuccessful }, reset } = useForm();
+    const api_url = "http://127.0.0.1:3000"
+
+    const registerUser = async () => {
+        const { data } = await axios.post(`${api_url}/v1/login`, data);
+
+        return data;
+    };
+
+    const { user } = useUserStore()
+
+    console.log(user, "ffff");
+
+
 
     const handleClick = () => {
         setValue(!value);
@@ -18,7 +33,7 @@ export const Profile = () => {
     }
 
     const adminClick = () => {
-        navigate({to: '/admin'});
+        navigate({ to: '/admin' });
     }
 
     const handleClick2 = () => {
@@ -27,7 +42,7 @@ export const Profile = () => {
         reset();
     }
 
-    const getData = (data) => {
+    const postData = (data) => {
         console.log(data);
         setValue(!value);
         setIsDisabled(true);
@@ -49,11 +64,11 @@ export const Profile = () => {
                     <div className={styles.content_profile}>
                         <div className={styles.content_profile_info}>
                             <img src={profile} alt="" />
-                            <h1>Иван Иванов</h1>
+                            <h1>{user?.name}</h1>
                         </div>
                         <div className={styles.content_profile_text}>
-                            <p><span>E-mail</span>ivan_ivanov@mail.ru</p>
-                            <p><span>Телефон</span>+7 (948) 044-49-49</p>
+                            <p><span>E-mail</span>{user?.login}</p>
+                            <p><span>Телефон</span>{user?.number}</p>
                             <p><span>Город/Населенный пункт</span>Оренбург</p>
                         </div>
                         <button onClick={adminClick}>админка</button>
@@ -64,7 +79,7 @@ export const Profile = () => {
                             <div className={styles.input}>
                                 <p>Введите имя</p>
                                 <input type="text" placeholder='Имя' disabled={isDisabled}
-                                    {...register("Name", {required: true})}
+                                    {...register("Name", { required: true })}
                                     style={{
                                         borderColor: errors.Name ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
                                     }}
@@ -74,7 +89,7 @@ export const Profile = () => {
                             <div className={styles.input}>
                                 <p>Введите Фамилию</p>
                                 <input type="text" placeholder='Фамилия' disabled={isDisabled}
-                                    {...register("lastName", {required: true})}
+                                    {...register("lastName", { required: true })}
                                     style={{
                                         borderColor: errors.lastName ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
                                     }}
@@ -84,7 +99,7 @@ export const Profile = () => {
                             <div className={styles.input}>
                                 <p>Введите e-mail</p>
                                 <input type="text" placeholder='Email' disabled={isDisabled}
-                                    {...register("Email", {required: true})}
+                                    {...register("Email", { required: true })}
                                     style={{
                                         borderColor: errors.Email ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
                                     }}
@@ -94,7 +109,7 @@ export const Profile = () => {
                             <div className={styles.input}>
                                 <p>Введите город/населенный пункт</p>
                                 <input type="text" placeholder='Город/Населенный пункт' disabled={isDisabled}
-                                    {...register("Map", {required: true})}
+                                    {...register("Map", { required: true })}
                                     style={{
                                         borderColor: errors.Map ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
                                     }}
@@ -104,7 +119,7 @@ export const Profile = () => {
                             <div className={styles.input}>
                                 <p>Введите номер телефона</p>
                                 <input type="text" placeholder='Телефон' disabled={isDisabled}
-                                    {...register("Phone", {required: true})}
+                                    {...register("Phone", { required: true })}
                                     style={{
                                         borderColor: errors.Phone ? 'red' : (isSubmitSuccessful ? 'green' : 'none')
                                     }}
@@ -117,7 +132,7 @@ export const Profile = () => {
                                 <button onClick={handleClick}>Изменить</button>
                             ) || (
                                 <div className={styles.buttons}>
-                                    <button className={styles.save} onClick={handleSubmit(getData)}>Сохранить</button>
+                                    <button className={styles.save} onClick={handleSubmit(postData)}>Сохранить</button>
                                     <button onClick={handleClick2} className={styles.cancel}>Отмена</button>
                                 </div>
                             )

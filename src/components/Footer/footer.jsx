@@ -11,7 +11,7 @@ export const Footer = () => {
                 <div className={styles.Footer__inner_info}>
                     <div className={styles.Footer__inner_info_title}>
                         <h1>POLFLACONA</h1>
-                        <p>Это пространство, с самой разной  парфюмерией:
+                        <p>Это пространство, с самой разной продукцией:
                            от классики до ниши,  от России до Франции и Италии,
                            от популярного до никому неизвестного.</p>
                     </div>
@@ -31,14 +31,14 @@ export const Footer = () => {
                     </div>
                     <div className={styles.Footer__inner_info_contacts}>
                         <Link to="/contacts"><h1>Контакты</h1></Link>
-                        <p>Адрес: Большой Гнездниковский переулок д. 7</p>
+                        <p>Адрес: Гнездниковский переулок д. 7</p>
                         <p>+7 985 853-30-02</p>
                         <p>Email: polflacona@yandex.ru.</p>
                         <p>ИНН 644000557305</p>
                     </div>
                 </div>
                 <div className={styles.Footer__inner_links}>
-                    <p> © 2023 – 2024. «Полфлакона». Все права защищены.</p>
+                    <p>   © 2023 – 2024. «Полфлакона». Все права защищены.</p>
                     <div className={styles.Footer__inner_links_contact}>
                         <img src={watsup} alt="" />
                         <img src={vk} alt="" />
