@@ -33,13 +33,13 @@ export const useStoreCard = create(
         deleteCard: (id) => set((state) => ({ card: state.card.filter(item => item.id !== id) })),
         countPlus: (id) => set((state) => ({
             card: state.card.map(card =>
-              card.id === id ? { ...card, count: card.count + 1 } : card
+                card.id === id ? { ...card, count: card.count + 1 } : card
             ),
-          })),
-          countMinus: (id) => set((state) => ({
+        })),
+        countMinus: (id) => set((state) => ({
             card: state.card.map(card =>
-              card.id === id ? { ...card, count: card.count - 1 } : card
+                card.id === id ? { ...card, count: card.count - 1 } : card
             ),
-          })),
+        })),
     }),
 );

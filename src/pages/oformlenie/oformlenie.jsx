@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import sbp from "/src/assets/sbp.svg"
 import cart from "/src/assets/card.svg"
 import holder from "/src/assets/holder.svg"
+import { Dostavka } from "/src/pages/oformlenie/dostavka/dostavka.jsx";
 
 export const Oformlenie = () => {
     const { register, handleSubmit, formState: { errors, isSubmitSuccessful }, reset } = useForm();
@@ -105,7 +106,7 @@ export const Oformlenie = () => {
                         <form className={styles.three}>
                             <h1>3</h1>
                             <div className={styles.three_inner}>
-                                <h1>Адрес и способ доставки</h1>
+                                <h1>Адрес и способ <br /> доставки</h1>
                                 <div className={styles.three_inner_content}>
                                     <div className={styles.input}>
                                         <p>Введите город</p>
@@ -138,6 +139,7 @@ export const Oformlenie = () => {
                                         <p className={styles.p2}>{errors.home?.type === 'required' && 'Заполните поле' || "Поле для заполнения"}</p>
                                     </div>
                                 </div>
+                                <Dostavka />
                             </div>
                         </form>
                     </div>

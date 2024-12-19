@@ -102,10 +102,10 @@ export const MainSlider = () => {
                                         handleClick={handleClick}
                                         className={styles.MainSlider__card_favorite}
                                     />
-                                    <img src={img} alt="" className={styles.MainSlider__card_flacon} />
+                                    <img src={img} alt="" className={styles.MainSlider__card_flacon}/>
                                 </div>
                                 <div className={styles.MainSlider__card_text}>
-                                    <h1 className={styles.MainSlider__card_text_price}>{price}</h1>
+                                    <h1 className={styles.MainSlider__card_text_price}>{price.toLocaleString('en-US')} ₽</h1>
                                     <p className={styles.MainSlider__card_text_title}>{title}<span>{name}</span></p>
                                     <p className={styles.MainSlider__card_text_p}>Есть в наличие</p>
                                 </div>

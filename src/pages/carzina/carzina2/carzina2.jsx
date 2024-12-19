@@ -6,6 +6,11 @@ import { Link } from "@tanstack/react-router";
 export const Carzina2 = () => {
     const card = useStoreCard(state => state.card)
     const deleteCard = useStoreCard(state => state.deleteCard)
+
+    const removeCard = (id) => {
+        deleteCard(id)
+    }
+
     console.log(card);
     const sum = card.reduce((index, card) => index  + (card.price * card.count) , 0);
     return (
@@ -25,7 +30,7 @@ export const Carzina2 = () => {
                                 <p>{name}</p>
                                 <div className={styles.card__text_btn}>
                                     <div className={styles.card__text_btn_left}>
-                                        <img src={delite} alt="" onClick={() => deleteCard(id)} />
+                                        <img src={delite} alt="" onClick={() => removeCard(id)} />
                                         <div className={styles.counter}>
                                             <button className={styles.left} onClick={() => countMinus(id)}>-</button>
                                             <p className={styles.count}>{count}</p>
@@ -49,9 +54,9 @@ export const Carzina2 = () => {
                             <div className={styles.menu_inf} key={id}>
                                 <div className={styles.inf_items}>
                                     <p className={styles.inf_items_name}>{title}</p>
-                                    <p className={styles.inf_items_price}> {sum.toLocaleString('en-US')} ₽</p>
+                                    <p className={styles.inf_items_price}> {price.toLocaleString('en-US')} ₽</p>
                                 </div>
-                                <p className={styles.inf_item_count}>{count}</p>
+                                <p className={styles.inf_item_count}>{count} шт</p>
                             </div>
                         )
                     })}

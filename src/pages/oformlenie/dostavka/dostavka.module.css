@@ -1,0 +1,119 @@
+.Dostavka {
+    padding-left: 9px;
+    padding-right: 9px;
+    margin-top: 20px;
+    width: 456px;
+    height: 414px;
+    border-radius: 20px;
+    background-color: #FCFAFF;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .input {
+        display: flex;
+        justify-content: space-between;
+        height: 47px;
+        border-bottom: 1px solid black;
+
+        &:nth-child(1) {
+            margin-top: 14.5px;
+        }
+
+        .input_text {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            .kurier {
+                width: 32px;
+                height: 37px;
+            }
+
+            .sam {
+                width: 33px;
+                height: 33px;
+            }
+
+            .box {
+                width: 115px;
+                height: 24px;
+            }
+
+            .sdek {
+                width: 66px;
+                height: 18px;
+            }
+
+            .yandex {
+                width: 108px;
+                height: 21px;
+            }
+
+            >p {
+                font-size: 20px;
+                font-weight: 500;
+                color: #603699;
+                height: 24px;
+            }
+        }
+
+        .input_check {
+            display: flex;
+            gap: 17px;
+            align-items: center;
+
+            >p{
+                font-size: 20px;
+                font-weight: 500;
+                color: #603699;
+            }
+            
+            >input{
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+
+    .input_unk {
+        display: flex;
+        justify-content: space-between;
+        height: 47px;
+        margin-bottom: 14.5px;
+
+        .input_text {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            .pochta {
+                width: 54px;
+                height: 30px;
+            }
+
+            >p {
+                font-size: 20px;
+                font-weight: 500;
+                color: #603699;
+            }
+        }
+
+        .input_check {
+            display: flex;
+            gap: 17px;
+            align-items: center;
+
+            >p{
+                font-size: 20px;
+                font-weight: 500;
+                color: #603699;
+            }
+
+            >input{
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+}
