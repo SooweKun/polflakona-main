@@ -27,7 +27,6 @@ export const Auth = () => {
             return res.data
         },
 
-
         onSuccess: (data) => {
             console.log(data, "ЗАЛОГИНИН ЕПТА");
             if (data.status === "success") {

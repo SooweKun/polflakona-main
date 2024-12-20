@@ -65,6 +65,7 @@ export const Catalog = () => {
 
     const ofor = () => {
         navigate({to: '/oformlenie'})
+        addCard({ id, price, title})
     }
 
     const handleClick = () => {

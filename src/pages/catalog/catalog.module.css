@@ -50,7 +50,7 @@
                     height: 139px;
                     border-radius: 8px;
                     border: none;
-                    background-color: rgb(236, 232, 232);
+                    background-color: white;
                     transition: 0.3s;
                     position: absolute;
                     z-index: 111;
@@ -60,7 +60,7 @@
                         height: 40px;
                         border-radius: 8px;
                         border: none;
-                        background-color: rgb(236, 232, 232);
+                        background-color: white;
                         padding-left: 10px;
                         padding-right: 10px;
                         display: flex;
@@ -112,7 +112,7 @@
                     transition: 2s;
                     border-radius: 20px;
                     padding: 20px;
-                    background-color: rgb(243, 243, 243);
+                    background-color: white;
                     display: flex;
                     flex-direction: column;
                     gap: 26px;
@@ -128,7 +128,7 @@
                             align-items: center;
                             justify-content: space-between;
                             border: none;
-                            background-color: rgb(243, 243, 243);
+                            background-color: white;
                             cursor: pointer;
                             font-size: 16px;
                             font-weight: 600;
@@ -182,7 +182,7 @@
     width: 235px;
     height: 358px;
     border-radius: 20px;
-    background-color: #d6d2d2;
+    background-color: white;
     padding: 11px;
 
     .MainSlider__card_imgs{
