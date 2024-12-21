@@ -63,11 +63,6 @@ export const Catalog = () => {
     const [selectedOption, setSelectedOption] = useState('по популярности')
     const navigate = useNavigate();
 
-    const ofor = () => {
-        navigate({to: '/oformlenie'})
-        addCard({ id, price, title})
-    }
-
     const handleClick = () => {
         setFill(prev => prev === "none" ? "#603699" : "none")
     }
@@ -77,7 +72,7 @@ export const Catalog = () => {
     }
 
     const openModules = (module) => {
-        setOpenModule(openModule === module ? null : module); // Переключение состояния
+        setOpenModule(openModule === module ? null : module);
     };
 
     const handleOptionClick = (option) => {
@@ -177,6 +172,15 @@ export const Catalog = () => {
                                 const handleClick = () => {
                                     setFill(prev => prev === "none" ? "#603699" : "none")
                                 }
+                                const ofor = () => {
+                                    navigate({ to: '/oformlenie' })
+                                    addCard({ id, price, title, img })
+                                }
+
+                                const imgClick = () => {
+                                    navigate({ to: `/cardinfo` })
+                                    addCard({ id, price, title, img })
+                                }
                                 return (
                                     <div className={styles.MainSlider__card} key={id}>
                                         <div className={styles.MainSlider__card_imgs}>
@@ -185,7 +189,7 @@ export const Catalog = () => {
                                                 handleClick={handleClick}
                                                 className={styles.MainSlider__card_favorite}
                                             />
-                                            <img src={img} alt="" className={styles.MainSlider__card_flacon} />
+                                            <img src={img} alt="" className={styles.MainSlider__card_flacon} onClick={imgClick} />
                                         </div>
                                         <div className={styles.MainSlider__card_text}>
                                             <h1 className={styles.MainSlider__card_text_price}>{price}</h1>

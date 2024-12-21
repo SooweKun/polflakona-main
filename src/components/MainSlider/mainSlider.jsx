@@ -97,7 +97,7 @@ export const MainSlider = () => {
                         }
                         const ofor = () => {
                             navigate({to: '/oformlenie'})
-                            addCard({ id, price, title})
+                            addCard({ id, price, title, img})
                         }
                         return (
                             <div className={styles.MainSlider__card} key={id}>

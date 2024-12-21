@@ -1,43 +1,43 @@
-.Reg{
+.Reg {
     margin-top: 50px;
 
-    .Reg__inner{
+    .Reg__inner {
         max-width: 1056px;
         margin: 0 auto;
         margin-bottom: 50px;
 
-        .Reg__inner_navig{
+        .Reg__inner_navig {
             display: flex;
             align-items: center;
             gap: 3px;
             font-size: 12px;
             font-weight: 400;
 
-            >a{
+            >a {
                 text-decoration: none;
                 color: #4A1A8C;
             }
 
-            .Reg__inner_navig_p{
+            .Reg__inner_navig_p {
                 color: #3A2557;
                 text-decoration: underline;
                 text-underline-offset: 4px;
             }
         }
 
-        >h1{
+        >h1 {
             font-size: 32px;
             font-weight: 700;
             color: #3A2557;
             margin-top: 50px;
         }
 
-        .Reg__inner_content{
+        .Reg__inner_content {
             display: flex;
             justify-content: space-between;
             margin-top: 50px;
 
-            .content__form{
+            .content__form {
                 width: 516px;
                 height: 849px;
                 border-radius: 20px;
@@ -45,42 +45,42 @@
                 padding-left: 81px;
                 padding-right: 81px;
 
-                >form{
+                >form {
                     margin-top: 44px;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
 
-                    >h1{
+                    >h1 {
                         font-size: 32px;
                         font-weight: 800;
                         color: #3A2557;
                     }
 
-                    .content__form_inputs{
+                    .content__form_inputs {
                         margin-top: 40px;
                         text-align: left;
 
-                        >p{
+                        >p {
                             font-size: 14px;
                             color: #3A2557;
                             font-weight: 500;
                             margin-bottom: 4px;
                         }
 
-                        .content__form_input{
+                        .content__form_input {
                             margin-bottom: 37px;
                             position: relative;
 
-                            .error{
+                            .error {
                                 color: red;
                                 font-size: 12px;
                                 font-weight: 400;
                                 margin-top: 4px;
                                 position: absolute;
                             }
-    
-                            >input{
+
+                            >input {
                                 width: 354px;
                                 height: 54px;
                                 border-radius: 12px;
@@ -88,8 +88,8 @@
                                 border: 2px solid #E6DCF1;
                                 padding-left: 15px;
                                 outline: none;
-    
-                                &::placeholder{
+
+                                &::placeholder {
                                     color: #BEBEBE;
                                     font-size: 16px;
                                     font-weight: 400;
@@ -97,7 +97,7 @@
                             }
                         }
 
-                        .content_form_radioButton{
+                        .content_form_radioButton {
                             display: flex;
                             gap: 8px;
                             margin-top: 30px;
@@ -114,7 +114,7 @@
                                 }
                             }
 
-                            >p{
+                            >p {
                                 font-size: 14px;
                                 font-weight: 300;
                                 color: black;
@@ -122,7 +122,7 @@
                         }
                     }
 
-                    >button{
+                    >button {
                         margin-top: 30px;
                         width: 354px;
                         height: 54px;
@@ -137,7 +137,7 @@
                 }
             }
 
-            .content_title{
+            .content_title {
                 width: 516px;
                 height: 501px;
                 border-radius: 20px;
@@ -149,28 +149,28 @@
                 align-items: center;
                 text-align: center;
 
-                >img{
+                >img {
                     margin-top: 48px;
                     width: 213px;
                     height: 227px;
                 }
 
-                >h1{
+                >h1 {
                     color: #3A2557;
                     font-size: 32px;
                     font-weight: 800;
                     margin-top: 16px;
                 }
 
-                >p{
+                >p {
                     font-size: 14px;
                     font-weight: 400;
                     color: #3A2557;
                     margin-top: 16px;
                 }
 
-                >a{
-                    .content__title_btn{
+                >a {
+                    .content__title_btn {
                         margin-top: 16px;
                         width: 356px;
                         height: 54px;
