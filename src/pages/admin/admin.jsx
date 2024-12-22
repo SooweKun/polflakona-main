@@ -2,10 +2,10 @@ import styles from "/src/pages/admin/admin.module.css";
 import { Link } from "@tanstack/react-router";
 import { Footer } from "/src/components/Footer/footer.jsx";
 import { useForm } from 'react-hook-form';
-import warning from "/src/assets/warning.svg"
-import ArrowUp from "/src/assets/arrowUp.svg"
-import ArrowDown from "/src/assets/arrowDown.svg"
-import { useState } from "react";
+import warning from "/src/assets/warning.svg";
+import ArrowUp from "/src/assets/arrowUp.svg";
+import ArrowDown from "/src/assets/arrowDown.svg";
+import { useState, useEffect } from "react";
 
 export const Admin = () => {
     const { register, handleSubmit, formState: { errors, isSubmitSuccessful } } = useForm();
@@ -15,23 +15,22 @@ export const Admin = () => {
     const handleFileChange = (e) => {
         const files = Array.from(e.target.files);
         const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-        const validFiles = files.filter(file => allowedTypes.includes(file.type));
+        const validFiles = files.filter((file) => allowedTypes.includes(file.type));
 
         if (validFiles.length) {
-            const newImages = validFiles.map(file => URL.createObjectURL(file));
-            setImages(newImages);
-
-            postData({ data }, validFiles);
+            const newImages = validFiles.map((file) => URL.createObjectURL(file));
+            setImages((prevImages) => [...prevImages, ...newImages]);
         }
-    }
+    };
+
 
     const openModules = (module) => {
         setOpenModule(openModule === module ? null : module);
     };
 
-    const postData = (data, validFiles) => {
+    const postData = (data) => {
         console.log(data);
-        console.log(validFiles, "file");
+        console.log(images);
     }
 
     return (
@@ -73,7 +72,7 @@ export const Admin = () => {
                                 <p>Фотографии</p>
                                 <input type="text" placeholder="Выберете несколько фото"
                                 />
-                                <input type="file" accept="image/*" multiple onClick={handleFileChange}
+                                <input type="file" accept="image/*" multiple onChange={handleFileChange}
                                 />
                                 {
                                     images.length > 0 && (
@@ -82,7 +81,6 @@ export const Admin = () => {
                                                 <img
                                                     key={index}
                                                     src={image}
-                                                    alt={`uploaded-${index}`}
                                                 />
                                             ))}
                                         </div>

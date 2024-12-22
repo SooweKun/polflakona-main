@@ -1,0 +1,134 @@
+.MainSlider{
+    width: 100%;
+    height: 523px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    margin-top: 116px;
+
+    .MainSlider__inner{
+        max-width: 1110px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .MainSlider__inner_h1{
+            color: #563782;
+            font-weight: bold;
+            margin-top: 48px;
+            padding-left: 55px;
+        }
+
+        .MainSlider__cards{
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+
+            .next{
+                cursor: pointer;
+                width: 39px;
+            }
+
+            .back{
+                cursor: pointer;
+                width: 39px;
+            }
+        }
+    }
+}
+
+.MainSlider__card{
+    width: 239px;
+    height: 358px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    padding: 11px;
+
+    .MainSlider__card_imgs{
+        width: 217px;
+        height: 199px;
+        border-radius: 15px;
+        position: relative;
+
+        .MainSlider__card_favorite{
+            width: 28px;
+            height: 27px;
+            position: absolute;
+            top: 8px;
+            right: 9px;
+            cursor: pointer;
+        }
+
+        .MainSlider__card_flacon{
+            width: 100%;
+            height: 100%;
+            user-select: none;
+        }
+    }
+
+    .MainSlider__card_text{
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        .MainSlider__card_text_price{
+            font-size: 24px;
+            font-weight: 600;
+            color: #3A2557;
+            margin-top: 14px;
+        }
+
+        .MainSlider__card_text_title{
+            font-size: 15px;
+            font-weight: 400;
+            color: black;
+            margin-top: 8px;
+
+            >span{
+                font-size: 13px;
+                font-weight: 400;
+                color: #593780 / 20%;
+            }
+        }
+
+        .MainSlider__card_text_p{
+            font-size: 10px;
+            font-weight: 500;
+            color: black / 50%;
+            margin-top: 8px;
+        }
+    }
+
+    .MainSlider__card_btn{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 14px;
+
+        .MainSlider__card_btn_carzina{
+            width: 106.5px;
+            height: 34px;
+            background-color: #603699;
+            border-radius: 9px;
+            border: none;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .MainSlider__card_btn_click{
+            width: 106.5px;
+            height: 34px;
+            background-color: #F7F1FF;
+            border-radius: 9px;
+            border: 1px solid #603699 / 70%;
+            color: #603699;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+}

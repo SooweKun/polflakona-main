@@ -1,23 +1,36 @@
 import { useStoreCard } from "/src/store/store";
+import { Link } from "@tanstack/react-router";
+import { MainSlider } from "/src/components/MainSlider/mainSlider.jsx";
+import { MainSlider2 } from "/src/pages/CardInfo/MainSlider2/mainSlider2.jsx";
+import { Footer } from "/src/components/Footer/footer.jsx";
 import styles from "/src/pages/CardInfo/cardInfo.module.css"
+import { InfoMain } from "./infoMain/infoMain";
 
 
 export const CardInfo = () => {
     const card = useStoreCard(state => state.card)
     return (
-        <div>
-            {card.map(({ title, price, id, img }) => {
-                return (
-                    <div className={styles.menu_inf} key={id}>
-                        <div className={styles.inf_items}>
-                            <p className={styles.inf_items_name}>{title}</p>
-                            <p className={styles.inf_items_price}> {price} ₽</p>
-                        </div>
-                        <p className={styles.inf_item_count}>1 шт</p>
-                        <img src={img} alt="" />
-                    </div>
-                )
-            })}
+        <div className={styles.CardInfo}>
+            <div className={styles.CardInfo__inner}>
+                <div className={styles.CardInfo__inner_navig}>
+                    <Link to="/"><p>Главная /</p></Link>
+                    <Link><p>Наш каталог /</p></Link>
+                    {card.map(({ title }) => (
+                        <p className={styles.CardInfo__inner_navig_p}>{title}</p>
+                    ))}
+                </div>
+                {card.map(({title}) => (
+                     <h1 className={styles.h1}>{title}</h1>
+                ))}
+                {
+                    card.map(({title}) => (
+                        <InfoMain title={title} />
+                    ))
+                }
+            </div>
+            <MainSlider />
+            <MainSlider2 />
+            <Footer />
         </div>
     );
 }

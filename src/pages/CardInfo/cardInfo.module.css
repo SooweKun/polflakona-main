@@ -1,0 +1,35 @@
+.CardInfo{
+    margin-top: 50px;
+
+    .CardInfo__inner{
+        max-width: 1056px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+
+        .CardInfo__inner_navig{
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 12px;
+            font-weight: 400;
+
+            >a{
+                text-decoration: none;
+                color: #4A1A8C;
+            }
+
+            .CardInfo__inner_navig_p{
+                color: #3A2557;
+                text-decoration: underline;
+                text-underline-offset: 4px;
+            }
+        }
+
+        .h1{
+            font-size: 32px;
+            font-weight: 700;
+            color: #3A2557;
+            margin-top: 50px;
+        }
+    }
+}
