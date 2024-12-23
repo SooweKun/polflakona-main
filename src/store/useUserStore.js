@@ -6,17 +6,17 @@ export const useUserStore = create(
 
   persist(
     (set) => ({
-  user: {
-    name: '',
-    email: '',
-    password: '',
-    id: '',
-  },
+      user: {
+        name: '',
+        email: '',
+        password: '',
+        id: '',
+      },
 
-  setUser: (newUser) => set({ user: newUser })
-}), {
-      name: 'user',
-      storage: createJSONStorage(() => localStorage), 
-}
+      setUser: (newUser) => set({ user: newUser })
+    }), {
+    name: 'user',
+    storage: createJSONStorage(() => localStorage),
+  }
   )
 )

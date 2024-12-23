@@ -1,0 +1,204 @@
+.CardInfo__inner_main {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+
+    .CardInfo__inner_main_info {
+        display: flex;
+        gap: 10px;
+        height: 434px;
+
+        .info_imgs {
+            display: flex;
+            gap: 6px;
+
+            .info_imgSmall {
+                width: 68px;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+
+                >div {
+                    width: 100%;
+                    height: 105.5px;
+                    background-color: white;
+                    border-radius: 8px;
+                }
+            }
+
+            .info_imgBig {
+                width: 267px;
+                height: 100%;
+                border-radius: 20px;
+                background-color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .info_text {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            width: 338px;
+            height: 100%;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 24px;
+            background-color: white;
+            border-radius: 20px;
+
+            .text {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                >h1 {
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #3A2557;
+                }
+
+                .text_btn {
+                    display: flex;
+                    gap: 4px;
+
+                    >button {
+                        width: 68px;
+                        height: 27px;
+                        border-radius: 8px;
+                        border: 1px solid #C8C8C8;
+                        background-color: transparent;
+                        color: #C8C8C8;
+                        font-size: 14px;
+                        font-weight: 600;
+                        cursor: pointer;
+
+                        &:focus {
+                            border: 1px solid #3A2557;
+                            color: #563782;
+                        }
+                    }
+                }
+            }
+
+            .text_info {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+
+                .text_info_text {
+                    display: flex;
+                    justify-content: space-between;
+                    height: 19px;
+
+                    >p:nth-child(1) {
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: gray;
+                    }
+
+                    >p:nth-child(2) {
+                        color: #563782;
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+
+        .info_price {
+            width: 357px;
+            height: 222px;
+            background-color: white;
+            border-radius: 12px;
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-top: 24px;
+
+            .price_text {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                >p {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #3A2557;
+                }
+
+                .text {
+                    display: flex;
+                    gap: 32px;
+
+                    >h1 {
+                        font-size: 40px;
+                        font-weight: 700;
+                        color: #8F5BD7;
+                    }
+
+                    .text_minus {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 9px;
+                        color: #999999;
+
+                        >p:nth-child(1) {
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+
+                        >p:nth-child(2) {
+                            font-size: 16px;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+
+            .price_btns {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                >p {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #00C517;
+                }
+
+                .price_btn {
+                    display: flex;
+                    gap: 6px;
+
+                    >button:nth-child(1) {
+                        width: 249px;
+                        height: 52px;
+                        background-color: #3A2557;
+                        border-radius: 9px;
+                        border: none;
+                        color: white;
+                        font-size: 16px;
+                        font-weight: 700;
+                        cursor: pointer;
+                    }
+
+                    >button:nth-child(2) {
+                        width: 52px;
+                        height: 52px;
+                        background-color: #3A2557;
+                        border-radius: 9px;
+                        border: none;
+                        color: white;
+                        font-size: 16px;
+                        font-weight: 700;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

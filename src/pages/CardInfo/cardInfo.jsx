@@ -9,22 +9,28 @@ import { InfoMain } from "./infoMain/infoMain";
 
 export const CardInfo = () => {
     const card = useStoreCard(state => state.card)
+
     return (
         <div className={styles.CardInfo}>
             <div className={styles.CardInfo__inner}>
                 <div className={styles.CardInfo__inner_navig}>
                     <Link to="/"><p>Главная /</p></Link>
                     <Link><p>Наш каталог /</p></Link>
-                    {card.map(({ title }) => (
-                        <p className={styles.CardInfo__inner_navig_p}>{title}</p>
+                    {card.map(({ title, id }) => (
+                        <p className={styles.CardInfo__inner_navig_p} key={id}>{title}</p>
                     ))}
                 </div>
-                {card.map(({title}) => (
-                     <h1 className={styles.h1}>{title}</h1>
+                {card.map(({ title, id }) => (
+                    <h1 className={styles.h1} key={id}>{title}</h1>
                 ))}
                 {
-                    card.map(({title}) => (
-                        <InfoMain title={title} />
+                    card.map(({ title, id, img, price }) => (
+                        <InfoMain
+                            title={title}
+                            key={id}
+                            img={img}
+                            price={price}
+                        />
                     ))
                 }
             </div>

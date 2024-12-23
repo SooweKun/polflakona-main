@@ -42,17 +42,22 @@ export const useStoreCard = create(
 );
 
 export const useUserStore = create(
-	set => ({
-		user: {
-			id: 0,
-			login: '',
-			password: '',
-			role: '',
-			number: '',
+    set => ({
+        user: {
+            id: 0,
+            login: '',
+            password: '',
+            role: '',
+            number: '',
             name: '',
-		},
-		addUser(data) {
-			set(() => ({user: data}));
-		},
-	}),
+        },
+        addUser(data) {
+            set(() => ({ user: data }));
+        },
+    }),
 );
+
+export const useSelectStore = create((set) => ({
+    selectedCard: null, // Храним только одну выбранную карточку
+    selectCard: (card) => set({ selectedCard: card }), // Функция для выбора карточки
+}));
