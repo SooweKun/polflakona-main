@@ -3,7 +3,7 @@
 // import { Card } from "./Card/card";
 import { Heart } from "/src/components/MainSlider/heart/heart.jsx";
 import styles from "/src/components/MainSlider/mainSlider.module.css"
-import { useStoreCard } from "/src/store/store";
+import { useStoreCard, useDataStore } from "/src/store/store";
 import { useState } from "react";
 import { useNavigate } from '@tanstack/react-router';
 import one from "/src/assets/1.png"
@@ -90,6 +90,7 @@ export const MainSlider = () => {
                     <img src={backImg} alt="" className={styles.back} onClick={handlePrev} disabled={currentIndex === 0}/>
                     {info.data.slice(currentIndex, currentIndex + itemsPerPage).map(({ id, price, img, title, name }) => {
                         const addCard = useStoreCard(state => state.addCard)
+                        const addData = useDataStore(state => state.addData)
                         const [fill, setFill] = useState("none");
                         const card = useStoreCard(state => state.card)
                         const handleClick = () => {
@@ -99,6 +100,10 @@ export const MainSlider = () => {
                             navigate({to: '/oformlenie'})
                             addCard({ id, price, title, img})
                         }
+                        const imgClick = () => {
+                            navigate({to: '/cardInfo'})
+                            addData({ id, price, title, img})
+                        }
                         return (
                             <div className={styles.MainSlider__card} key={id}>
                                 <div className={styles.MainSlider__card_imgs}>
@@ -107,7 +112,7 @@ export const MainSlider = () => {
                                         handleClick={handleClick}
                                         className={styles.MainSlider__card_favorite}
                                     />
-                                    <img src={img} alt="" className={styles.MainSlider__card_flacon}/>
+                                    <img src={img} alt="" className={styles.MainSlider__card_flacon} onClick={imgClick}/>
                                 </div>
                                 <div className={styles.MainSlider__card_text}>
                                     <h1 className={styles.MainSlider__card_text_price}>{price.toLocaleString('en-US')} ₽</h1>

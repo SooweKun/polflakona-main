@@ -1,6 +1,7 @@
 import styles from "/src/pages/catalog/catalog.module.css"
 import { Link, useNavigate } from '@tanstack/react-router'
 import { Heart } from "/src/components/MainSlider/heart/heart.jsx";
+import { Footer } from "/src/components/Footer/footer.jsx";
 import ArrowDown from "/src/assets/arrowDown.svg"
 import { useState } from "react"
 import ArrowUp from "/src/assets/arrowUp.svg"
@@ -9,7 +10,11 @@ import two from "/src/assets/2.png"
 import three from "/src/assets/3.png"
 import four from "/src/assets/4.png"
 import five from "/src/assets/5.png"
-import { useStoreCard } from "/src/store/store";
+import six from "/src/assets/6.png"
+import seven from "/src/assets/7.png"
+import eight from "/src/assets/8.png"
+import nine from "/src/assets/9.png"
+import { useStoreCard, useDataStore } from "/src/store/store";
 
 const text = ["по популярности", "сначала дешевые", "сначала дороже"]
 
@@ -53,7 +58,39 @@ const info = {
             img: five,
             title: "DOLCE&GABBANA /",
             name: "L'peratrice"
-        }
+        },
+
+        {
+            id: 6,
+            price: 6559,
+            img: six,
+            title: "YOU /",
+            name: "Tobacco & Vanilla"
+        },
+
+        {
+            id: 7,
+            price: 6559,
+            img: seven,
+            title: "LAB FRAGRANCE /",
+            name: "Chinese plum"
+        },
+
+        {
+            id: 8,
+            price: 7889,
+            img: eight,
+            title: "ZADIG&VOLTAIRE  /",
+            name: "This is her!"
+        },
+
+        {
+            id: 9,
+            price: 5559,
+            img: nine,
+            title: "MOSCHINO  /",
+            name: "Funny"
+        },
     ]
 }
 
@@ -168,6 +205,7 @@ export const Catalog = () => {
                         <div className={styles.info_catalog}>
                             {info.data.map(({ id, price, img, title, name }) => {
                                 const addCard = useStoreCard(state => state.addCard)
+                                const addData = useDataStore(state => state.addData)
                                 const [fill, setFill] = useState("none");
                                 const handleClick = () => {
                                     setFill(prev => prev === "none" ? "#603699" : "none")
@@ -179,7 +217,7 @@ export const Catalog = () => {
 
                                 const imgClick = () => {
                                     navigate({ to: `/cardinfo` })
-                                    addCard({ id, price, title, img })
+                                    addData({ id, price, title, img })
                                 }
                                 return (
                                     <div className={styles.MainSlider__card} key={id}>
@@ -207,6 +245,7 @@ export const Catalog = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

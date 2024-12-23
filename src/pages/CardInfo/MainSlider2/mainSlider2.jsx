@@ -3,14 +3,14 @@
 // import { Card } from "./Card/card";
 import { Heart } from "/src/components/MainSlider/heart/heart.jsx";
 import styles from "/src/pages/CardInfo/MainSlider2/mainSlider2.module.css"
-import { useStoreCard } from "/src/store/store";
+import { useStoreCard, useDataStore } from "/src/store/store";
 import { useState } from "react";
 import { useNavigate } from '@tanstack/react-router';
-import one from "/src/assets/1.png"
-import two from "/src/assets/2.png"
-import three from "/src/assets/3.png"
 import four from "/src/assets/4.png"
-import five from "/src/assets/5.png"
+import six from "/src/assets/6.png"
+import seven from "/src/assets/7.png"
+import eight from "/src/assets/8.png"
+import nine from "/src/assets/9.png"
 import nextImg from "/src/assets/next2.svg"
 import backImg from "/src/assets/back2.svg"
 import axios from "axios";
@@ -19,30 +19,6 @@ const info = {
     data: [
         {
             id: 1,
-            price: 7889,
-            img: one,
-            title: "Akro /",
-            name: "Bake"
-        },
-
-        {
-            id: 2,
-            price: 5889,
-            img: two,
-            title: "KARL LAGERFELD /",
-            name: "Shibuya"
-        },
-
-        {
-            id: 3,
-            price: 7199,
-            img: three,
-            title: "ROBERTO CAVALLI /",
-            name: "Just Cavalli"
-        },
-
-        {
-            id: 4,
             price: 6689,
             img: four,
             title: "JIMMY CHOO /",
@@ -50,12 +26,36 @@ const info = {
         },
 
         {
+            id: 2,
+            price: 6559,
+            img: six,
+            title: "YOU /",
+            name: "Tobacco & Vanilla"
+        },
+
+        {
+            id: 3,
+            price: 6559,
+            img: seven,
+            title: "LAB FRAGRANCE /",
+            name: "Chinese plum"
+        },
+
+        {
+            id: 4,
+            price: 7889,
+            img: eight,
+            title: "ZADIG&VOLTAIRE  /",
+            name: "This is her!"
+        },
+
+        {
             id: 5,
-            price: 8869,
-            img: five,
-            title: "DOLCE&GABBANA /",
-            name: "L'peratrice"
-        }
+            price: 5559,
+            img: nine,
+            title: "MOSCHINO  /",
+            name: "Funny"
+        },
     ]
 }
 
@@ -80,24 +80,29 @@ export const MainSlider2 = () => {
         if (currentIndex > 0) {
             setCurrentIndex(prevIndex => prevIndex - 1);
         }
-    };  
+    };
 
     return (
         <div className={styles.MainSlider}>
             <div className={styles.MainSlider__inner}>
                 <h1 className={styles.MainSlider__inner_h1}>Похожие товары  </h1>
                 <div className={styles.MainSlider__cards}>
-                    <img src={backImg} alt="" className={styles.back} onClick={handlePrev} disabled={currentIndex === 0}/>
+                    <img src={backImg} alt="" className={styles.back} onClick={handlePrev} disabled={currentIndex === 0} />
                     {info.data.slice(currentIndex, currentIndex + itemsPerPage).map(({ id, price, img, title, name }) => {
                         const addCard = useStoreCard(state => state.addCard)
+                        const addData = useDataStore(state => state.addData)
                         const [fill, setFill] = useState("none");
                         const card = useStoreCard(state => state.card)
                         const handleClick = () => {
                             setFill(prev => prev === "none" ? "#603699" : "none")
                         }
                         const ofor = () => {
-                            navigate({to: '/oformlenie'})
-                            addCard({ id, price, title, img})
+                            navigate({ to: '/oformlenie' })
+                            addCard({ id, price, title, img })
+                        }
+                        const imgClick = () => {
+                            navigate({ to: '/cardinfo' })
+                            addData({ id, price, title, img })
                         }
                         return (
                             <div className={styles.MainSlider__card} key={id}>
@@ -107,7 +112,7 @@ export const MainSlider2 = () => {
                                         handleClick={handleClick}
                                         className={styles.MainSlider__card_favorite}
                                     />
-                                    <img src={img} alt="" className={styles.MainSlider__card_flacon}/>
+                                    <img src={img} alt="" className={styles.MainSlider__card_flacon} onClick={imgClick}/>
                                 </div>
                                 <div className={styles.MainSlider__card_text}>
                                     <h1 className={styles.MainSlider__card_text_price}>{price.toLocaleString('en-US')} ₽</h1>
@@ -122,7 +127,7 @@ export const MainSlider2 = () => {
                         )
                     })
                     }
-                    <img src={nextImg} alt="" className={styles.next} onClick={handleNext} disabled={currentIndex + itemsPerPage >= info.data.length}/>
+                    <img src={nextImg} alt="" className={styles.next} onClick={handleNext} disabled={currentIndex + itemsPerPage >= info.data.length} />
                 </div>
             </div>
         </div>

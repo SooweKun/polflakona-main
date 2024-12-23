@@ -1,13 +1,5 @@
 import { create } from "zustand";
 
-export const useStoreCount = create(
-    set => ({
-        count: 1,
-        increment: () => set((state) => ({ count: state.count + 1 })),
-        decrement: () => set((state) => ({ count: state.count - 1 })),
-    })
-)
-
 export const useStoreCard = create(
     set => ({
         card: [],
@@ -57,7 +49,9 @@ export const useUserStore = create(
     }),
 );
 
-export const useSelectStore = create((set) => ({
-    selectedCard: null, // Храним только одну выбранную карточку
-    selectCard: (card) => set({ selectedCard: card }), // Функция для выбора карточки
-}));
+export const useDataStore = create(
+    set => ({
+        data: [],
+        addData: (newItem) => set(() => ({ data: [newItem] })),
+    })
+)
