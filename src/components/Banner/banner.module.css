@@ -44,6 +44,11 @@
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;
+
+            &:hover{
+                background-color: #4A1A8C;
+                color: white;
+            }
         }
     }
 }

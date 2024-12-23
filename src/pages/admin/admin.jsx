@@ -60,7 +60,7 @@ export const Admin = () => {
                         <div className={styles.inputs_one}>
                             <div className={styles.content__form_input}>
                                 <p>Название товара</p>
-                                <input type="text" placeholder="Введите e-mail"
+                                <input type="text" placeholder="Введите название"
                                     {...register("name", { required: true })}
                                     style={{
                                         borderColor: errors.name ? 'red' : (isSubmitSuccessful ? 'green' : 'none')

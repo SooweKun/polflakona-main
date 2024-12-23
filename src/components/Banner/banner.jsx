@@ -1,6 +1,13 @@
+import { useNavigate } from "@tanstack/react-router"
 import styles from "./banner.module.css"
 
 export const Banner = () => {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate({ to: '/catalog' })
+    }
+
     return (
         <div className={styles.Banner}>
             <div className={styles.Banner__inner}>
@@ -11,7 +18,7 @@ export const Banner = () => {
                     от классики до ниши, от России до Франции и Италии,
                     от популярного до никому неизвестного.</p>
                 </div>
-                <button className={styles.Banner__button}>СМОТРЕТЬ</button>
+                <button className={styles.Banner__button} onClick={handleClick}>СМОТРЕТЬ</button>
             </div>
         </div>
     )

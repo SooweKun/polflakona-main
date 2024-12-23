@@ -2,6 +2,7 @@ import styles from "/src/components/MainCatalog/MainCatalogCard/mainCatalogCard.
 import woman from "/src/assets/woman.png"
 import man from "/src/assets/man.png"
 import universal from "/src/assets/universal.png"
+import { useNavigate } from '@tanstack/react-router';
 
 const info = {
     data: [
@@ -26,13 +27,19 @@ const info = {
 }
 
 export const MainCatalogCard = () => {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate({ to: '/catalog' })
+    }
+
     return(
        <>
         {info.data.map(({id, img, title}) => (
             <div className={styles.MainCatalogCard} key={id}>
                 <img src={img} alt="" className={styles.MainCatalogCard__img}/>
                 <div className={styles.overlay}>
-                    <p className={styles.overlayText}>ПЕРЕЙТИ</p>
+                    <p className={styles.overlayText} onClick={handleClick}>ПЕРЕЙТИ</p>
                 </div>
                 <p className={styles.MainCatalogCard__title}>{title}</p>
             </div>

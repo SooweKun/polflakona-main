@@ -1,7 +1,11 @@
 import styles from "/src/pages/CardInfo/infoMain/infoMain.module.css"
-import { Heart } from "/src/components/MainSlider/heart/heart.jsx";
+import { Heart2 } from "/src/pages/CardInfo/Hear2.jsx/heart2.jsx";
 import { useStoreCard } from "/src/store/store";
 import { useState } from "react";
+import one from "/src/assets/1.png"
+import six from "/src/assets/6.png"
+import seven from "/src/assets/7.png"
+import eight from "/src/assets/8.png"
 
 export const InfoMain = ({ title, id, img, price }) => {
     const [fill, setFill] = useState("none");
@@ -14,10 +18,18 @@ export const InfoMain = ({ title, id, img, price }) => {
             <div className={styles.CardInfo__inner_main_info}>
                 <div className={styles.info_imgs}>
                     <div className={styles.info_imgSmall}>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <div>
+                            <img src={one} alt="" />
+                        </div>
+                        <div>
+                        <img src={six} alt="" />
+                        </div>
+                        <div>
+                        <img src={seven} alt="" />
+                        </div>
+                        <div>
+                            <img src={eight} alt="" />
+                        </div>
                     </div>
                     <div className={styles.info_imgBig}>
                         <img src={img} alt="" />
@@ -67,7 +79,7 @@ export const InfoMain = ({ title, id, img, price }) => {
                     <div className={styles.price_text}>
                         <p>Цена только для тебя</p>
                         <div className={styles.text}>
-                            <h1>{price.toLocaleString('en-US')} ₽</h1>
+                            <h1>{price.toLocaleString('ru-RU')} ₽</h1>
                             <div className={styles.text_minus}>
                                 <p>Стало дешевле</p>
                                 <p>2 099 ₽</p>
@@ -79,7 +91,7 @@ export const InfoMain = ({ title, id, img, price }) => {
                         <div className={styles.price_btn}>
                             <button onClick={() => addCard({ id, price, img, title })}>В КОРЗИНУ</button>
                             <button>
-                                <Heart
+                                <Heart2
                                     fill={fill}
                                     handleClick={handleClick}
                                 />

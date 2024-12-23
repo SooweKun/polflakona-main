@@ -1,6 +1,6 @@
 import styles from "/src/pages/oformlenie/oformlenie.module.css"
 import { Link } from "@tanstack/react-router";
-import { useStoreCard } from "/src/store/store";
+import { useDataStore } from "/src/store/store";
 import { useForm } from "react-hook-form";
 import sbp from "/src/assets/sbp.svg"
 import cart from "/src/assets/card.svg"
@@ -9,8 +9,8 @@ import { Dostavka } from "/src/pages/oformlenie/dostavka/dostavka.jsx";
 
 export const Oformlenie = () => {
     const { register, handleSubmit, formState: { errors, isSubmitSuccessful }, reset } = useForm();
-    const card = useStoreCard(state => state.card)
-    const sum = card.reduce((index, value) => index + value.price, 0);
+    const data = useDataStore(state => state.data)
+    const sum = data.reduce((index, value) => index + value.price, 0);
 
     const getData = (data) => {
         console.log(data);
@@ -145,15 +145,15 @@ export const Oformlenie = () => {
                     </div>
                     <div className={styles.Carzina2__menu}>
                         <div className={styles.menu_count}>
-                            <p>{card.length} шт</p>
+                            <p>{data.length} шт</p>
                         </div>
                         <div className={styles.menu_title}>
-                            {card.map(({ title, price, id }) => {
+                            {data.map(({ title, price, id }) => {
                                 return (
                                     <div className={styles.menu_inf} key={id}>
                                         <div className={styles.inf_items}>
                                             <p className={styles.inf_items_name}>{title}</p>
-                                            <p className={styles.inf_items_price}> {price} ₽</p>
+                                            <p className={styles.inf_items_price}> {price.toLocaleString('ru-RU')} ₽</p>
                                         </div>
                                         <p className={styles.inf_item_count}>1 шт</p>
                                     </div>
@@ -162,7 +162,7 @@ export const Oformlenie = () => {
                         </div>
                         <div className={styles.menu_price}>
                             <p>Итого:</p>
-                            <p>{sum} ₽</p>
+                            <p>{sum.toLocaleString('ru-RU')} ₽</p>
                         </div>
                         <Link to="/oformlenie"><button onClick={handleSubmit(getData)}>к оплате</button></Link>
                         <div className={styles.menu_text}>

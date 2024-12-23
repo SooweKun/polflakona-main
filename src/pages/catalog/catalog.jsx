@@ -230,7 +230,7 @@ export const Catalog = () => {
                                             <img src={img} alt="" className={styles.MainSlider__card_flacon} onClick={imgClick} />
                                         </div>
                                         <div className={styles.MainSlider__card_text}>
-                                            <h1 className={styles.MainSlider__card_text_price}>{price}</h1>
+                                            <h1 className={styles.MainSlider__card_text_price}>{price.toLocaleString('ru-RU')} ₽</h1>
                                             <p className={styles.MainSlider__card_text_title}>{title}<span>{name}</span></p>
                                             <p className={styles.MainSlider__card_text_p}>Есть в наличие</p>
                                         </div>
