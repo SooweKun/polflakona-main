@@ -98,7 +98,7 @@ export const MainSlider = () => {
                         }
                         const ofor = () => {
                             navigate({to: '/oformlenie'})
-                            addCard({ id, price, title, img})
+                            addData({ id, price, title, img})
                         }
                         const imgClick = () => {
                             navigate({to: '/cardInfo'})

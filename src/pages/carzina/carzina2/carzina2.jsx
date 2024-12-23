@@ -20,7 +20,7 @@ export const Carzina2 = () => {
                 </div>
                 <div className={styles.menu_title}>
                     {card.map(({ title, price, id, count }) => (
-                        <div className={styles.menu_inf} key={id}>
+                        <div className={styles.menu_inf}    >
                             <div className={styles.inf_items}>
                                 <p className={styles.inf_items_name}>{title}</p>
                                 <p className={styles.inf_items_price}>{price.toLocaleString('en-US')} ₽</p>

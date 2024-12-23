@@ -1,5 +1,6 @@
 import styles from "/src/pages/CardInfo/infoMain/infoMain.module.css"
 import { Heart } from "/src/components/MainSlider/heart/heart.jsx";
+import { useStoreCard } from "/src/store/store";
 import { useState } from "react";
 
 export const InfoMain = ({ title, id, img, price }) => {
@@ -7,6 +8,7 @@ export const InfoMain = ({ title, id, img, price }) => {
     const handleClick = () => {
         setFill(prev => prev === "none" ? "white" : "none" )
     }
+    const addCard = useStoreCard(state => state.addCard)
     return (
         <div className={styles.CardInfo__inner_main}>
             <div className={styles.CardInfo__inner_main_info}>
@@ -75,7 +77,7 @@ export const InfoMain = ({ title, id, img, price }) => {
                     <div className={styles.price_btns}>
                         <p>Есть в наличии</p>
                         <div className={styles.price_btn}>
-                            <button>В КОРЗИНУ</button>
+                            <button onClick={() => addCard({ id, price, img, title })}>В КОРЗИНУ</button>
                             <button>
                                 <Heart
                                     fill={fill}
