@@ -164,3 +164,27 @@
     }
 }
 
+@media (max-width: 375px) {
+    .Footer{
+        height: max-content;
+        .Footer__inner{
+            .Footer__inner_info{
+                flex-direction: column;
+            }
+
+            .Footer__inner_links{
+                width: 355px;
+                padding-left: 0px;
+                justify-content: center;
+
+                >p{
+                    font-size: 10px;
+                }
+
+                .Footer__inner_links_contact{
+                    display: none;
+                }
+            }
+        }
+    }
+}

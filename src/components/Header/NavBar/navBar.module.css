@@ -24,3 +24,9 @@
         color: #4A1A8C;
     }
 }
+
+@media (max-width: 375px) {
+    .NavBar{
+        display: none;
+    }
+}

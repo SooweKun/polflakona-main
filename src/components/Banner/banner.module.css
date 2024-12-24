@@ -1,9 +1,9 @@
-.Banner{
+.Banner {
     max-width: 1046px;
     margin: 0 auto;
     margin-top: 50px;
 
-    .Banner__inner{
+    .Banner__inner {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -13,7 +13,7 @@
         padding-left: 74px;
         padding-bottom: 94px;
 
-        .Banner__text{
+        .Banner__text {
             display: flex;
             flex-direction: column;
             width: 442px;
@@ -21,12 +21,12 @@
             color: white;
             margin-bottom: 80px;
 
-            .Banner__title{
+            .Banner__title {
                 font-size: 48px;
                 font-weight: 700;
             }
 
-            .Banner__description{
+            .Banner__description {
                 font-size: 16px;
                 font-weight: 500;
                 margin-top: 21px;
@@ -35,7 +35,7 @@
             }
         }
 
-        .Banner__button{
+        .Banner__button {
             width: 214px;
             height: 55px;
             border-radius: 20px;
@@ -45,9 +45,62 @@
             font-weight: 700;
             cursor: pointer;
 
-            &:hover{
+            &:hover {
                 background-color: #4A1A8C;
                 color: white;
+            }
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .Banner {
+        max-width: 375px;
+        margin: 0 auto;
+        margin-top: 50px;
+
+        .Banner__inner {
+            padding-left: 20px;
+            height: 317px;
+            border-radius: 0px;
+            background-size: cover;
+            padding-bottom: 0px;
+            justify-content: flex-start;
+
+            .Banner__text {
+                width: 100%;
+                height: 126px;
+                margin-bottom: 0px;
+                margin-top: 66px;
+
+                .Banner__title {
+                    font-size: 40px;
+                    font-weight: 700;
+                }
+
+                .Banner__description {
+                    font-size: 12px;
+                    font-weight: 500;
+                    width: 246px;
+                    height: 75px;
+                }
+            }
+
+            .Banner__button {
+                width: 140px;
+                height: 40px;
+                border-radius: 20px;
+                border: none;
+                color: #4A1A8C;
+                font-size: 16px;
+                font-weight: 700;
+                cursor: pointer;
+                margin-top: 35px;
+    
+                &:hover {
+                    background-color: #4A1A8C;
+                    color: white;
+                }
             }
         }
     }

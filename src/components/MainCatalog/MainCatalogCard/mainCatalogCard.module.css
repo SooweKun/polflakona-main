@@ -50,3 +50,50 @@
         margin-top: 20px;
     }
 }
+
+@media (max-width: 375px) {
+    .MainCatalogCard{
+        width: 166px;
+        height: 196px;
+
+        .MainCatalogCard__img{
+            width: 158px;
+            height: 154px;
+            border-radius: 18px;
+        }
+
+        .overlay {
+            position: absolute; 
+            top: 5px;
+            left: 5px;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(58, 37, 87, 0.8); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            opacity: 0; 
+            transition: opacity 0.3s ease;
+            width: 158px;
+            height: 154px;
+            border-radius: 18px;
+    
+            &:hover{
+                opacity: 1; 
+                color: white;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: bold;
+            }
+        }
+
+        .MainCatalogCard__title{
+            color: #563782;
+            font-size: 12px;
+            font-weight: 600px;
+            width: max-content;
+            height: 20px;
+            margin-top: 10px;
+        }
+    }
+}

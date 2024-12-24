@@ -4,11 +4,13 @@ import { Number } from './Number/number';
 import { Profile } from './Profile/profile';
 import { Link } from "@tanstack/react-router";
 import styles from '/src/components/Header/header.module.css';
+import { Burger } from '../Burger/burger';
 
 export const Header = () => {
 
     return(
         <div className={styles.Header}>
+            <Burger/>
             <Link to="/"><h1 className={styles.Header__logo}>POLFLACONA</h1></Link>
             <NavBar/>
             <Number/>

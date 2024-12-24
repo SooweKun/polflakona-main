@@ -18,3 +18,15 @@
         color: #563782;
     }
 }
+
+@media (max-width: 375px) {
+    .MainCatalog{
+        max-width: 336px;
+        margin-top: 30px;
+
+        .MainCatalog__cards{
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+    }
+}
